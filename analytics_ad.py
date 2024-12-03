@@ -1,8 +1,15 @@
+import csv
+import os.path
+
 import pandas as pd
 
 if __name__ == '__main__':
-    csv_path = '/Users/zhouzhenliang/Desktop/analytics_20241125/device_file_helper_loaderror4.csv'
+    csv_path = '/Users/zhouzhenliang/Desktop/analytics_20241125/device_file_helper_ad.csv'
+    name1, name2 = os.path.splitext(csv_path)
+    out_path = name1 + '_out' + name2
     df = pd.read_csv(csv_path)
+    csv_file = open(out_path, 'w')
+    csv_writer = csv.writer(csv_file)
 
     dates = set()
     channels = set()
@@ -11,10 +18,14 @@ if __name__ == '__main__':
     for channel in df.loc[:, 'app_channel']:
         channels.add(channel)
 
-    events = ['business_loadactivity_viewed',
-              'business_adactivity_viewed',
-              'business_showinterstitialad',
-              'business_interstitialad_viewed']
+    events = [
+        'business_dowork',
+        'business_startloadactivity',
+        'business_loadactivity_viewed',
+        'business_adactivity_viewed',
+        'business_showinterstitialad',
+        'business_interstitialad_viewed'
+    ]
 
     # head
     heads = ['date', 'app_channel']
@@ -25,7 +36,8 @@ if __name__ == '__main__':
         heads.append(f'avg_count_{i + 1}')
     for i in range(1, len(events)):
         heads.append(f'ratio_{i + 1}')
-    print(','.join(heads))
+
+    csv_writer.writerow(heads)
 
     # data
     for date in sorted(dates, reverse=True):
@@ -41,21 +53,21 @@ if __name__ == '__main__':
             if len(values) != len(events):
                 continue
 
-            event_items = []
+            csv_rows = [date, channel.strip('"')]
             for i in range(len(events)):
-                event_items.append(events[i])
+                csv_rows.append(events[i])
                 event_count, user_count = values[i]
-                event_items.append(str(event_count))
-                event_items.append(str(user_count))
-                event_items.append(str(round(event_count / user_count, 1)))
+                csv_rows.append(str(event_count))
+                csv_rows.append(str(user_count))
+                csv_rows.append(str(round(event_count / user_count, 1)))
 
-            ratio_items = []
             for i in range(1, len(events)):
                 event_count, user_count = values[i - 1]
                 event_count1, user_count1 = values[i]
                 ratio = event_count / user_count
                 ratio1 = event_count1 / user_count1
-                ratio_items.append(str(round(100 * ratio1 / ratio, 1)) + '%')
+                csv_rows.append(str(round(100 * ratio1 / ratio, 1)) + '%')
 
-            f_channel = channel.strip('"')
-            print(f'{date}, {f_channel}, {",".join(event_items)}, {",".join(ratio_items)}')
+            csv_writer.writerow(csv_rows)
+
+    csv_file.close()
