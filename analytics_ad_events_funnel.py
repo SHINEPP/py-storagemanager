@@ -25,7 +25,7 @@ LIMIT 0, 2000
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
-        headers = ['event_date_utc', 'component', 'user_count', 'event_count', 'unique_user_event_count']
+        headers = ['event_date_utc', 'component', 'user_count', 'event_count', 'per_user_event_count']
         csv_writer.writerow(headers)
 
         for row in rows:

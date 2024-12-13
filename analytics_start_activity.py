@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 import pandas as pd
 from analytics import open_analytics
@@ -49,11 +50,12 @@ LIMIT 0, 10000
         cursor.execute(sql2)
         rows2 = cursor.fetchall()
 
-        out_path = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_activity_result_1.6-3.csv'
+        date_text = datetime.now().strftime('%m%d%H%M%S')
+        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/superstoragecleaner_activity_result_1.6_date_text.csv'
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
-        headers = ['event_date_utc', 'component', 'start_event_count', 'view_event_count']
+        headers = ['event_date_utc', 'component', 'start_event_count', 'view_event_count', 'success_ratio']
         csv_writer.writerow(headers)
 
         for row1 in rows1:
@@ -69,10 +71,13 @@ LIMIT 0, 10000
             for row2 in rows2:
                 if row2[0] == date and row2[1].strip('"') == component:
                     find = True
-                    csv_rows.append(row2[2])
+                    count = row2[2]
+                    csv_rows.append(count)
+                    csv_rows.append(round(count / event_count, 1))
                     break
             if not find:
                 csv_rows.append(0)
+                csv_rows.append('')
 
             csv_writer.writerow(csv_rows)
 
