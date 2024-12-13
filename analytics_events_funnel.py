@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 from analytics import open_analytics
 
@@ -19,7 +20,8 @@ LIMIT 0, 2000
         cursor.execute(sql)
         rows = cursor.fetchall()
 
-        out_path = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_events_funnel_1.6-1.csv'
+        date_text = datetime.now().strftime('%m%d%H%M%S')
+        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/superstoragecleaner_events_funnel_1.6_{date_text}.csv'
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
