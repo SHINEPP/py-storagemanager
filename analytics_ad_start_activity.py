@@ -1,7 +1,6 @@
 import csv
 from datetime import datetime
 
-import pandas as pd
 from analytics import open_analytics
 
 ad_activity_names = ['com.anythink.basead.ui.ATLandscapeActivity',
@@ -51,7 +50,7 @@ LIMIT 0, 10000
         rows2 = cursor.fetchall()
 
         date_text = datetime.now().strftime('%m%d%H%M%S')
-        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/superstoragecleaner_activity_result_1.6_date_text.csv'
+        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/superstoragecleaner_ad_start_activity_1.6_date_text.csv'
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
@@ -73,7 +72,7 @@ LIMIT 0, 10000
                     find = True
                     count = row2[2]
                     csv_rows.append(count)
-                    csv_rows.append(round(count / event_count, 1))
+                    csv_rows.append(round(count / event_count, 3))
                     break
             if not find:
                 csv_rows.append(0)
