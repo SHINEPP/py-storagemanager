@@ -19,9 +19,9 @@ ad_activity_names = ['com.anythink.basead.ui.ATLandscapeActivity',
                      'com.anythink.basead.ui.ATPortraitActivity']
 
 if __name__ == '__main__':
-    csv_path_1 = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_startactivity_1.5.csv'
-    csv_path_2 = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_activityviewed_1.5.csv'
-    out_path = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_activity_out_1.5-1.csv'
+    csv_path_1 = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_activity_start_1.6.csv'
+    csv_path_2 = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_activity_view_1.6.csv'
+    out_path = '/Users/zhouzhenliang/Desktop/temp/analytics-20241209/superstoragecleaner_activity_result_1.6.csv'
 
     df1 = pd.read_csv(csv_path_1)
     df2 = pd.read_csv(csv_path_2)
