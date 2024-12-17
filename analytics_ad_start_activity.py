@@ -21,23 +21,25 @@ ad_activity_names = ['com.anythink.basead.ui.ATLandscapeActivity',
 
 if __name__ == '__main__':
 
-    sql1 = '''
+    app_name = 'file_manager_box'
+
+    sql1 = f'''
 SELECT event_date_utc, json_extract(event_parameters, '$.component') as component, count(*) as event_count
-FROM `macrophage_data_super_storage_cleaner`.raw_data
+FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name = 'business_startactivity' 
-AND json_extract(event_parameters, '$.app_version')  = '7'
-AND event_date_utc >= '2024-12-10' AND event_date_utc <= '2024-12-13'
+AND json_extract(event_parameters, '$.app_version')  = '10'
+AND event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-17'
 GROUP BY event_date_utc, json_extract(event_parameters, '$.component')
 ORDER BY event_date_utc DESC
 LIMIT 0, 10000
     '''.strip() + ';'
 
-    sql2 = '''
+    sql2 = f'''
 SELECT event_date_utc, json_extract(event_parameters, '$.component') as component, count(*) as event_count
-FROM `macrophage_data_super_storage_cleaner`.raw_data
+FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name = 'business_activityviewed' 
-AND json_extract(event_parameters, '$.app_version')  = '7'
-AND event_date_utc >= '2024-12-10' AND event_date_utc <= '2024-12-13'
+AND json_extract(event_parameters, '$.app_version')  = '10'
+AND event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-17'
 GROUP BY event_date_utc, json_extract(event_parameters, '$.component')
 ORDER BY event_date_utc DESC
 LIMIT 0, 10000
@@ -50,7 +52,7 @@ LIMIT 0, 10000
         rows2 = cursor.fetchall()
 
         date_text = datetime.now().strftime('%m%d%H%M%S')
-        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/superstoragecleaner_ad_start_activity_1.6_date_text.csv'
+        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/{app_name}_ad_start_activity_1.9_date_text.csv'
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
