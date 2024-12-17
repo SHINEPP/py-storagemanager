@@ -5,11 +5,13 @@ from analytics import open_analytics
 
 if __name__ == '__main__':
 
-    sql = '''
+    app_name = 'file_manager_box'
+
+    sql = f'''
 SELECT event_date_utc, json_extract(event_parameters, '$.error') as error, count(distinct user_id) as user_count, count(*) as event_count
-FROM `macrophage_data_super_storage_cleaner`.raw_data
-WHERE event_date_utc >= '2024-12-10' AND event_date_utc <= '2024-12-13'
-AND json_extract(event_parameters, '$.app_version')  = '7'
+FROM `macrophage_data_{app_name}`.raw_data
+WHERE event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-17'
+AND json_extract(event_parameters, '$.app_version')  = '10'
 AND event_name = 'business_interstitialad_displayfailed'
 GROUP BY event_date_utc, json_extract(event_parameters, '$.error')
 ORDER BY event_date_utc DESC
