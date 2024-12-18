@@ -12,7 +12,7 @@ SELECT event_date_utc, event_name, count(distinct user_id) as user_count, count(
 FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name in ('business_dowork', 'business_startloadactivity', 'business_loadactivity_viewed', 'business_adactivity_viewed', 'business_showinterstitialad', 'business_interstitialad_viewed', 'business_interstitialad_revenue', 'business_dowork_limit', 'business_interstitialad_loadtimeout', 'business_interstitialad_loadfailed', 'business_interstitialad_displayfailed', 'business_startactivity', 'business_activityviewed') 
 AND json_extract(event_parameters, '$.app_version')  = '10'
-AND event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-17'
+AND event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-18'
 GROUP BY event_date_utc, event_name
 ORDER BY event_date_utc DESC
 LIMIT 0, 2000
