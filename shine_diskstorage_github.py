@@ -71,31 +71,31 @@ def walk_common_github():
             host, user, path = infos
             url_format_list.append(f'{host}/{user}/{path}')
 
-        # try:
-        #     repo.remotes['origin'].pull()
-        # except git.GitCommandError as e:
-        #     print(f'e = {e}')
+        try:
+            repo.remotes['origin'].pull()
+        except git.GitCommandError as e:
+            print(f'e = {e}')
 
-    root_dirs = ['/Users/zhouzhenliang']
-
-    for root_dir in root_dirs:
-        print(f'------------------ {root_dir} ------------------')
-        git_dir = os.path.join(root_dir, 'source', 'github')
-        for proj_path in walk_git(git_dir):
-            url_format = git_url_format(proj_path)
-            if url_format:
-                print(url_format)
-                if url_format not in url_format_list:
-                    dst_dir = os.path.join(github_dir, proj_path[len(git_dir):].strip(os.path.sep))
-                    print(f'copy to {dst_dir}')
-                    if not os.path.exists(dst_dir):
-                        shutil.copytree(proj_path, dst_dir)
-                        if os.path.exists(dst_dir):
-                            print(f'copy success')
-                    else:
-                        print(f'copy fail, exist: {dst_dir}')
-                print()
-        print(f'------------------ {root_dir} ------------------')
+    # root_dirs = ['/Users/zhouzhenliang']
+    #
+    # for root_dir in root_dirs:
+    #     print(f'------------------ {root_dir} ------------------')
+    #     git_dir = os.path.join(root_dir, 'source', 'github')
+    #     for proj_path in walk_git(git_dir):
+    #         url_format = git_url_format(proj_path)
+    #         if url_format:
+    #             print(url_format)
+    #             if url_format not in url_format_list:
+    #                 dst_dir = os.path.join(github_dir, proj_path[len(git_dir):].strip(os.path.sep))
+    #                 print(f'copy to {dst_dir}')
+    #                 if not os.path.exists(dst_dir):
+    #                     shutil.copytree(proj_path, dst_dir)
+    #                     if os.path.exists(dst_dir):
+    #                         print(f'copy success')
+    #                 else:
+    #                     print(f'copy fail, exist: {dst_dir}')
+    #             print()
+    #     print(f'------------------ {root_dir} ------------------')
 
 
 if __name__ == '__main__':
