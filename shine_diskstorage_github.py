@@ -76,14 +76,7 @@ def walk_common_github():
         # except git.GitCommandError as e:
         #     print(f'e = {e}')
 
-    root_dirs = ['/Volumes/WDDATA/shine/.zhou_20221221',
-                 '/Volumes/WDDATA/shine/.zhou_20230314',
-                 '/Volumes/WDDATA/shine/.zhou_20230630',
-                 '/Volumes/WDDATA/shine/.zhou_20230925',
-                 '/Volumes/WDDATA/shine/.zhou_20231229',
-                 '/Volumes/WDDATA/shine/.zhou_20240429',
-                 '/Volumes/WDDATA/shine/.zhou_20240909',
-                 '/Volumes/WDDATA/shine/.zhou_20241216']
+    root_dirs = ['/Users/zhouzhenliang']
 
     for root_dir in root_dirs:
         print(f'------------------ {root_dir} ------------------')
@@ -94,12 +87,14 @@ def walk_common_github():
                 print(url_format)
                 if url_format not in url_format_list:
                     dst_dir = os.path.join(github_dir, proj_path[len(git_dir):].strip(os.path.sep))
+                    print(f'copy to {dst_dir}')
                     if not os.path.exists(dst_dir):
                         shutil.copytree(proj_path, dst_dir)
                         if os.path.exists(dst_dir):
-                            shutil.rmtree(proj_path)
-                else:
-                    shutil.rmtree(proj_path)
+                            print(f'copy success')
+                    else:
+                        print(f'copy fail, exist: {dst_dir}')
+                print()
         print(f'------------------ {root_dir} ------------------')
 
 
