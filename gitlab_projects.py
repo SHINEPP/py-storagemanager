@@ -60,12 +60,31 @@ def run():
         host = data['host']
         token = data['token']
 
+    index = 0
     for project in projects:
         path = project['fullPath']
         repository_url = f'https://oauth2:{token}@{host}/{path}.git'
         local_git = os.path.join(gitlab_root, path)
-        print(path)
-        git.Repo.clone_from(repository_url, local_git)
+        print('---------------------------------------')
+        print(f'{index} {path}')
+        if os.path.exists(local_git):
+            print(f'exist')
+            try:
+                print('origin pull')
+                repo = git.Repo(local_git)
+                repo.remotes['origin'].pull()
+                print(f'origin pull success')
+            except Exception as e:
+                print(f'origin pull fail, e = {e}')
+        else:
+            print(f'clone')
+            try:
+                git.Repo.clone_from(repository_url, local_git)
+                print(f'clone success')
+            except Exception as e:
+                print(f'clone fail, e = {e}')
+        print('---------------------------------------')
+        index += 1
 
 
 if __name__ == '__main__':
