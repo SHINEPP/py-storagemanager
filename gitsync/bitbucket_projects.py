@@ -12,7 +12,7 @@ def fetch_repositories():
         password = data['password']
 
     repositories = []
-    workspaces = ['zhouzhenliang']
+    workspaces = ['zhouzhenliang', 'permanent-workspace']
     for workspace in workspaces:
         api_url = f'https://api.bitbucket.org/2.0/repositories/{workspace}'
         print(api_url)

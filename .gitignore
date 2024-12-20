@@ -163,6 +163,6 @@ cython_debug/
 
 
 # custome
-gitlab_access.json
-github_access.json
-bitbucket_access.json
+gitsync/gitlab_access.json
+gitsync/github_access.json
+gitsync/bitbucket_access.json
