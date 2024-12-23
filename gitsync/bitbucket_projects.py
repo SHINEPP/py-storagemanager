@@ -35,6 +35,7 @@ def fetch_repositories():
 def run():
     github_root = '/Volumes/WDDATA/git/bitbucket'
     repositories = fetch_repositories()
+    print(f'count: {len(repositories)}')
 
     index = 0
     for repository in repositories:
