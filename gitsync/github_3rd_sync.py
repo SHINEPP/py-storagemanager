@@ -18,17 +18,20 @@ def walk_git(root_dir):
 
 def sync_3rd_github():
     github_dir = '/Volumes/WDDATA/git/github'
+    index = 0
     for proj_path in walk_git(github_dir):
+        print('---------------------------------------')
         proj_name = proj_path[len(github_dir):].strip(os.path.sep)
         repo = git.Repo(proj_path)
         url = repo.remote().url
-        print(f'path: {proj_name}, url: {url}')
-
+        print(f'{index} path: {proj_name}, url: {url}')
         try:
             repo.remotes['origin'].pull()
             print(f'origin pull success')
         except git.GitCommandError as e:
             print(f'origin pull fail, e = {e}')
+        print('---------------------------------------')
+        index += 1
 
 
 if __name__ == '__main__':
