@@ -1,3 +1,4 @@
+import logging
 import os
 
 import git
@@ -24,12 +25,14 @@ def sync_3rd_github():
         proj_name = proj_path[len(github_dir):].strip(os.path.sep)
         repo = git.Repo(proj_path)
         url = repo.remote().url
-        print(f'{index} path: {proj_name}, url: {url}')
+        print(f'index: {index}, path: {proj_name}, url: {url}')
         try:
-            repo.remotes['origin'].pull()
+            repo.remote().pull()
             print(f'origin pull success')
         except git.GitCommandError as e:
-            print(f'origin pull fail, e = {e}')
+            logging.error(f'origin pull fail, e = {e}')
+        finally:
+            repo.close()
         print('---------------------------------------')
         index += 1
 

@@ -1,4 +1,5 @@
 import json
+import logging
 import os.path
 
 import git
@@ -45,20 +46,23 @@ def run():
         print(f'{index} {path}')
         if os.path.exists(local_git):
             print(f'exist')
+            repo = None
             try:
                 print('origin pull')
                 repo = git.Repo(local_git)
-                repo.remotes['origin'].pull()
+                repo.remote().pull()
                 print(f'origin pull success')
             except Exception as e:
-                print(f'origin pull fail, e = {e}')
+                logging.error(f'origin pull fail, e = {e}')
+            finally:
+                repo.close()
         else:
             print(f'clone')
             try:
                 git.Repo.clone_from(clone_url, local_git)
                 print(f'clone success')
             except Exception as e:
-                print(f'clone fail, e = {e}')
+                logging.error(f'clone fail, e = {e}')
         print('---------------------------------------')
         index += 1
 
