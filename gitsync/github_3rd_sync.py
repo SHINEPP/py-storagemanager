@@ -1,5 +1,6 @@
 import logging
 import os
+import time
 
 import git
 
@@ -26,11 +27,12 @@ def sync_3rd_github():
         repo = git.Repo(proj_path)
         url = repo.remote().url
         print(f'index: {index}, path: {proj_name}, url: {url}')
+        start_time = time.time()
         try:
             repo.remote().pull()
-            print(f'origin pull success')
+            print(f'origin pull success, duration: {round(time.time() - start_time, 2)}s')
         except git.GitCommandError as e:
-            logging.error(f'origin pull fail, e = {e}')
+            logging.error(f'origin pull fail, duration: {round(time.time() - start_time, 2)}s, e = {e}')
         finally:
             repo.close()
         print('---------------------------------------')

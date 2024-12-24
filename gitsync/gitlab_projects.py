@@ -77,9 +77,9 @@ def run():
                 print('origin pull')
                 repo = git.Repo(local_git)
                 repo.remote().pull()
-                print(f'origin pull success, duration: {round(time.time() - start_time, 1)}s')
+                print(f'origin pull success, duration: {round(time.time() - start_time, 2)}s')
             except Exception as e:
-                logging.error(f'origin pull fail, duration: {round(time.time() - start_time, 1)}s, e = {e}')
+                logging.error(f'origin pull fail, duration: {round(time.time() - start_time, 2)}s, e = {e}')
             finally:
                 repo.close()
         else:
@@ -87,9 +87,9 @@ def run():
             print(f'clone')
             try:
                 git.Repo.clone_from(repository_url, local_git)
-                print(f'clone success, duration: {round(time.time() - start_time, 1)}s')
+                print(f'clone success, duration: {round(time.time() - start_time, 2)}s')
             except Exception as e:
-                logging.error(f'clone fail, duration: {round(time.time() - start_time, 1)}s, e = {e}')
+                logging.error(f'clone fail, duration: {round(time.time() - start_time, 2)}s, e = {e}')
         print('---------------------------------------')
         index += 1
 
