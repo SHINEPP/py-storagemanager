@@ -1,4 +1,3 @@
-import hashlib
 import os.path
 import sys
 import threading
@@ -50,10 +49,9 @@ class GradleDistributions:
         chrome_options.add_argument('--headless')  # 无界面模式
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
         service.start()
-        driver = webdriver.Remote(service.service_url, options=chrome_options)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
 
         driver.get(self.host_url)
-        time.sleep(5)
         contents = driver.find_element(By.ID, 'contents')
         if not contents:
             return
