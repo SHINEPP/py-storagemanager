@@ -49,9 +49,11 @@ class GradleDistributions:
         chrome_options = Options()
         chrome_options.add_argument('--headless')  # 无界面模式
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
-        driver = webdriver.Chrome(service=service, options=chrome_options)
+        service.start()
+        driver = webdriver.Remote(service.service_url, options=chrome_options)
 
         driver.get(self.host_url)
+        time.sleep(5)
         contents = driver.find_element(By.ID, 'contents')
         if not contents:
             return
@@ -64,6 +66,7 @@ class GradleDistributions:
             if not href:
                 continue
             self.distributions.append(href)
+        driver.quit()
 
     def _download_distribution(self, url: str):
         dir_path, name = os.path.split(url)
