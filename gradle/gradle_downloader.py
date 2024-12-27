@@ -24,22 +24,21 @@ class GradleDistributions:
         self.download_index = 0
         print(f'distributions count: {len(self.distributions)}')
         threads = []
-        for i in range(4):
-            t = threading.Thread(target=self._download_distributions, args=())
+        for i in range(8):
+            t = threading.Thread(target=self._download_distributions, args=(i,), daemon=True)
             threads.append(t)
             t.start()
         for t in threads:
             t.join()
 
-    def _download_distributions(self):
+    def _download_distributions(self, i):
         while True:
             with self.lock:
                 index = self.download_index
                 self.download_index += 1
             if index >= len(self.distributions):
                 break
-            print(f'index: {index}')
-            self._download_distribution(self.distributions[index])
+            self._download_distribution(self.distributions[index], index, i)
 
     def _fetch_distributions(self):
         self.distributions.clear()
@@ -48,7 +47,6 @@ class GradleDistributions:
         chrome_options = Options()
         chrome_options.add_argument('--headless')  # 无界面模式
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
-        service.start()
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         driver.get(self.host_url)
@@ -66,13 +64,14 @@ class GradleDistributions:
             self.distributions.append(href)
         driver.quit()
 
-    def _download_distribution(self, url: str):
+    def _download_distribution(self, url: str, index, tid):
         dir_path, name = os.path.split(url)
         dst_path = os.path.join(self.gradle_dir, name)
         if os.path.exists(dst_path):
-            print(f'file exist, path: {dst_path}')
+            self._log(f'{tid} {index}, file exist, path: {dst_path}')
             return
 
+        self._log(f'{tid} {index}, start download, path: {dst_path}')
         start_time = time.time()
         try:
             response = requests.get(url, stream=True)  # 开启流式下载
@@ -80,12 +79,18 @@ class GradleDistributions:
             with open(dst_path, 'wb') as file:
                 for chunk in response.iter_content(chunk_size=8192):  # 分块写入
                     file.write(chunk)
-            print(f'download success, path: {dst_path}, duration: {round(time.time() - start_time, 2)}s')
+            self._log(
+                f'{tid} {index}, download success, path: {dst_path}, duration: {round(time.time() - start_time, 2)}s')
         except requests.RequestException as e:
             if os.path.exists(dst_path):
                 os.remove(dst_path)
-            print(f'download fail, , path: {dst_path}, duration: {round(time.time() - start_time, 2)}s, e: {e}',
-                  file=sys.stderr)
+            self._log(
+                f'{tid} {index}, download fail, , path: {dst_path}, duration: {round(time.time() - start_time, 2)}s, e: {e}',
+                file=sys.stderr)
+
+    def _log(self, message, file=None):
+        with self.lock:
+            print(message, file=file)
 
 
 if __name__ == '__main__':
