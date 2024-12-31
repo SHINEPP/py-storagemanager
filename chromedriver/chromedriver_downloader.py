@@ -78,6 +78,7 @@ class GradleDistributions:
         try:
             response = requests.get(url, stream=True)  # 开启流式下载
             response.raise_for_status()  # 检查请求是否成功
+            os.makedirs(os.path.dirname(dst_path), exist_ok=True)
             with open(dst_path, 'wb') as file:
                 for chunk in response.iter_content(chunk_size=8192):  # 分块写入
                     file.write(chunk)
