@@ -13,6 +13,7 @@ from selenium.webdriver.chrome.service import Service
 class GradleDistributions:
 
     def __init__(self):
+        self.driver_version = ''
         self.distributions = []
         self.host_url = 'https://googlechromelabs.github.io/chrome-for-testing/#stable'
         self.gradle_dir = '/Volumes/WDDATA/application/chromedriver'
@@ -57,6 +58,8 @@ class GradleDistributions:
 
         soup = BeautifulSoup(html, 'html.parser')
         stable_section = soup.find('section', id='stable')
+        version = stable_section.find('p').find('code')
+        self.driver_version = version.text
         tbody = stable_section.find('tbody')
         trs = tbody.find_all('tr')
         for tr in trs:
@@ -68,7 +71,7 @@ class GradleDistributions:
     def _download_distribution(self, distribution, index, tid):
         platform, url = distribution
         dir_path, name = os.path.split(url)
-        dst_path = os.path.join(self.gradle_dir, platform, name)
+        dst_path = os.path.join(self.gradle_dir, self.driver_version, name)
         if os.path.exists(dst_path):
             self._log(f'{tid} {index}, file exist, path: {dst_path}')
             return
