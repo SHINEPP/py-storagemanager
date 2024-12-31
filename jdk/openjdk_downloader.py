@@ -9,6 +9,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
+from common import calculate_sha256
+
 
 class GradleDistributions:
 
@@ -20,16 +22,40 @@ class GradleDistributions:
         self.lock = threading.Lock()
 
     def start(self):
-        self._fetch_distributions()
-        self.download_index = 0
-        print(f'distributions count: {len(self.distributions)}')
-        threads = []
-        for i in range(8):
-            t = threading.Thread(target=self._download_distributions, args=(i,), daemon=True)
-            threads.append(t)
-            t.start()
-        for t in threads:
-            t.join()
+        self._check_distributions()
+        # self._fetch_distributions()
+        # self.download_index = 0
+        # print(f'distributions count: {len(self.distributions)}')
+        # threads = []
+        # for i in range(8):
+        #     t = threading.Thread(target=self._download_distributions, args=(i,), daemon=True)
+        #     threads.append(t)
+        #     t.start()
+        # for t in threads:
+        #     t.join()
+
+    def _check_distributions(self):
+        for root, dirs, files in os.walk(self.gradle_dir):
+            for file in files:
+                if file.endswith('.sha256'):
+                    continue
+                path = os.path.join(root, file)
+                print(f'check file, path: {path}')
+                sha256 = path + '.sha256'
+                if not os.path.exists(sha256):
+                    os.remove(path)
+                    print(f'rm file, no sha256 file, path: {path}')
+                    continue
+                with open(sha256, 'r') as f:
+                    content = f.read().strip()
+                    if '=' in content:
+                        _, content = content.split('=')[-1].strip()
+                value = calculate_sha256(path)
+                print(f'sha256, file: {value}, sha256: {content}')
+                if not value == content:
+                    os.remove(path)
+                    os.remove(sha256)
+                    print(f'rm file, sha256 no equal: {value} != {content}, path: {path}', file=sys.stderr)
 
     def _download_distributions(self, i):
         while True:
