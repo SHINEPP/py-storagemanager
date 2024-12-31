@@ -35,27 +35,34 @@ class GradleDistributions:
         #     t.join()
 
     def _check_distributions(self):
+        paths = []
         for root, dirs, files in os.walk(self.gradle_dir):
             for file in files:
                 if file.endswith('.sha256'):
                     continue
                 path = os.path.join(root, file)
-                print(f'check file, path: {path}')
-                sha256 = path + '.sha256'
-                if not os.path.exists(sha256):
-                    os.remove(path)
-                    print(f'rm file, no sha256 file, path: {path}')
-                    continue
-                with open(sha256, 'r') as f:
-                    content = f.read().strip()
-                    if '=' in content:
-                        _, content = content.split('=')[-1].strip()
-                value = calculate_sha256(path)
-                print(f'sha256, file: {value}, sha256: {content}')
-                if not value == content:
-                    os.remove(path)
-                    os.remove(sha256)
-                    print(f'rm file, sha256 no equal: {value} != {content}, path: {path}', file=sys.stderr)
+                paths.append(path)
+
+        print(f'count: {len(paths)}')
+        index = -1
+        for path in paths:
+            index += 1
+            print(f'check file, index = {index}, path: {path}')
+            sha256 = path + '.sha256'
+            if not os.path.exists(sha256):
+                os.remove(path)
+                print(f'rm file, no sha256 file, path: {path}')
+                continue
+            with open(sha256, 'r') as f:
+                content = f.read().strip()
+                if '=' in content:
+                    _, content = content.split('=')[-1].strip()
+            value = calculate_sha256(path)
+            print(f'sha256, file: {value}, sha256: {content}')
+            if not value == content:
+                os.remove(path)
+                os.remove(sha256)
+                print(f'rm file, sha256 no equal: {value} != {content}, path: {path}', file=sys.stderr)
 
     def _download_distributions(self, i):
         while True:
