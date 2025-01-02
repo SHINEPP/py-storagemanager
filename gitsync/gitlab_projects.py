@@ -1,6 +1,7 @@
 import json
 import logging
 import os.path
+import sys
 import time
 
 import git
@@ -55,43 +56,57 @@ def fetch_projects():
 def run():
     gitlab_root = '/Volumes/WDDATA4T/git/gitlab-ark'
     projects = fetch_projects()
-    print(f'count: {len(projects)}')
+
+    count = len(projects)
+    print(f'total count: {count}')
 
     with open('gitlab_access.json', 'r') as file:
         data = json.loads(file.read())
         host = data['host']
         token = data['token']
 
-    index = 0
+    index = -1
+
+    def progress():
+        return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'
+
     for project in projects:
+        index += 1
         path = project['fullPath']
         repository_url = f'https://oauth2:{token}@{host}/{path}.git'
         local_git = os.path.join(gitlab_root, path)
-        print('---------------------------------------')
-        print(f'{index} {path}')
+        print(f'\rCheck out: {progress()} {path}', end='')
+
         if os.path.exists(local_git):
-            print(f'exist')
             repo = None
             start_time = time.time()
+
+            def duration():
+                return f'done in {round(time.time() - start_time, 2)}s'
+
             try:
-                print('origin pull')
+                print(f'\rCheck out: {progress()} fetch {path}', end='')
                 repo = git.Repo(local_git)
                 repo.remote().pull()
-                print(f'origin pull success, duration: {round(time.time() - start_time, 2)}s')
+                print(f'\rCheck out: {progress()} fetch {path} success, {duration()}')
             except Exception as e:
-                logging.error(f'origin pull fail, duration: {round(time.time() - start_time, 2)}s, e = {e}')
+                print(f'\rCheck out: {progress()} fetch {path} fail, {duration()}', file=sys.stderr)
+                print(f'e = {e}')
             finally:
                 repo.close()
         else:
             start_time = time.time()
-            print(f'clone')
+
+            def duration():
+                return f'done in {round(time.time() - start_time, 2)}s'
+
             try:
+                print(f'\rCheck out: {progress()} clone {path}', end='')
                 git.Repo.clone_from(repository_url, local_git)
-                print(f'clone success, duration: {round(time.time() - start_time, 2)}s')
+                print(f'\rCheck out: {progress()} clone {path} success, {duration()}')
             except Exception as e:
-                logging.error(f'clone fail, duration: {round(time.time() - start_time, 2)}s, e = {e}')
-        print('---------------------------------------')
-        index += 1
+                print(f'\rCheck out: {progress()} clone {path} fail, {duration()}s', file=sys.stderr)
+                print(f'e = {e}')
 
 
 if __name__ == '__main__':
