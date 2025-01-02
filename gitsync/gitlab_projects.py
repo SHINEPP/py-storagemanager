@@ -74,7 +74,7 @@ def run():
         return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'
 
     def duration(start_time):
-        return f'done in {round(time.time() - start_time, 2)}s'
+        return f'done in {round(time.time() - start_time, 1)}s'
 
     for project in projects:
         index += 1
