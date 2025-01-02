@@ -38,7 +38,7 @@ class Progress(git.RemoteProgress):
 
     def update(self, op_code, cur_count, max_count=None, message=''):
         percent = 0 if max_count is None else round((cur_count / max_count) * 100)
-        print(f'\r{self.message}, {percent}%')
+        print(f'{self.message} {percent}%', end='')
 
 
 def run():
@@ -90,7 +90,12 @@ def run():
             try:
                 msg = f'\rCheck out: {progress()} clone {path}'
                 print(msg, end='')
-                git.Repo.clone_from(clone_url, local_git)
+
+                def callback(op_code, cur_count, max_count=None, message=''):
+                    percent = 0 if max_count is None else round((cur_count / max_count) * 100)
+                    print(f'{msg} {percent}%', end='')
+
+                git.Repo.clone_from(clone_url, local_git, progress=callback)
                 print(f'\rCheck out: {progress()} clone {path} success, {duration(stime)}')
                 c_success_count += 1
             except Exception as e:
