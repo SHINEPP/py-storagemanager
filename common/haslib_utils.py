@@ -4,7 +4,7 @@ import hashlib
 import sys
 
 
-def calculate_sha256(path: str) -> str | None:
+def file_sha256(path: str) -> str | None:
     sha256_hash = hashlib.sha256()
     try:
         with open(path, 'rb') as file:

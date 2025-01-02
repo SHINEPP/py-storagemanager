@@ -1,1 +1,1 @@
-from .haslib_utils import calculate_sha256
+from .haslib_utils import file_sha256

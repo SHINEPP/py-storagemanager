@@ -53,7 +53,7 @@ def fetch_projects():
 
 
 def run():
-    gitlab_root = '/Volumes/WDDATA/git/gitlab-ark'
+    gitlab_root = '/Volumes/WDDATA4T/git/gitlab-ark'
     projects = fetch_projects()
     print(f'count: {len(projects)}')
 
