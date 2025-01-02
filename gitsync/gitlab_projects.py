@@ -1,5 +1,4 @@
 import json
-import logging
 import os.path
 import sys
 import time
@@ -65,10 +64,17 @@ def run():
         host = data['host']
         token = data['token']
 
+    c_success_count = 0
+    c_fail_count = 0
+    f_success_count = 0
+    f_fail_count = 0
     index = -1
 
     def progress():
         return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'
+
+    def duration(start_time):
+        return f'done in {round(time.time() - start_time, 2)}s'
 
     for project in projects:
         index += 1
@@ -78,34 +84,34 @@ def run():
 
         if os.path.exists(local_git):
             repo = None
-            start_time = time.time()
-
-            def duration():
-                return f'done in {round(time.time() - start_time, 2)}s'
-
+            stime = time.time()
             try:
                 print(f'\rCheck out: {progress()} fetch {path}', end='')
                 repo = git.Repo(local_git)
                 repo.remote().pull()
-                print(f'\rCheck out: {progress()} fetch {path} success, {duration()}')
+                print(f'\rCheck out: {progress()} fetch {path} success, {duration(stime)}')
+                f_success_count += 1
             except Exception as e:
-                print(f'\rCheck out: {progress()} fetch {path} fail, {duration()}', file=sys.stderr)
+                print(f'\rCheck out: {progress()} fetch {path} fail, {duration(stime)}', file=sys.stderr)
                 print(f'e = {e}')
+                f_fail_count += 1
             finally:
                 repo.close()
         else:
-            start_time = time.time()
-
-            def duration():
-                return f'done in {round(time.time() - start_time, 2)}s'
-
+            stime = time.time()
             try:
                 print(f'\rCheck out: {progress()} clone {path}', end='')
                 git.Repo.clone_from(repository_url, local_git)
-                print(f'\rCheck out: {progress()} clone {path} success, {duration()}')
+                print(f'\rCheck out: {progress()} clone {path} success, {duration(stime)}')
+                c_success_count += 1
             except Exception as e:
-                print(f'\rCheck out: {progress()} clone {path} fail, {duration()}s', file=sys.stderr)
+                print(f'\rCheck out: {progress()} clone {path} fail, {duration(stime)}s', file=sys.stderr)
                 print(f'e = {e}')
+                c_fail_count += 1
+
+    print()
+    print(f'Check out: total clone {c_success_count}/{c_fail_count + c_success_count}')
+    print(f'Check out: total fetch {f_success_count}/{f_fail_count + f_success_count}')
 
 
 if __name__ == '__main__':
