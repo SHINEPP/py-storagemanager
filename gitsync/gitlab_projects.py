@@ -75,7 +75,6 @@ def run():
         path = project['fullPath']
         repository_url = f'https://oauth2:{token}@{host}/{path}.git'
         local_git = os.path.join(gitlab_root, path)
-        print(f'\rCheck out: {progress()} {path}', end='')
 
         if os.path.exists(local_git):
             repo = None
