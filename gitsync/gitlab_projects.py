@@ -109,9 +109,8 @@ def run():
                 print(f'e = {e}')
                 c_fail_count += 1
 
-    print()
-    print(f'Check out: total clone {c_success_count}/{c_fail_count + c_success_count}')
-    print(f'Check out: total fetch {f_success_count}/{f_fail_count + f_success_count}')
+    print(f'Check out: total clone ({c_success_count}/{c_fail_count + c_success_count})')
+    print(f'Check out: total fetch ({f_success_count}/{f_fail_count + f_success_count})')
 
 
 if __name__ == '__main__':
