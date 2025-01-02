@@ -105,7 +105,7 @@ def run():
                 print(f'\rCheck out: {progress()} clone {path} success, {duration(stime)}')
                 c_success_count += 1
             except Exception as e:
-                print(f'\rCheck out: {progress()} clone {path} fail, {duration(stime)}s', file=sys.stderr)
+                print(f'\rCheck out: {progress()} clone {path} fail, {duration(stime)}', file=sys.stderr)
                 print(f'e = {e}')
                 c_fail_count += 1
 
