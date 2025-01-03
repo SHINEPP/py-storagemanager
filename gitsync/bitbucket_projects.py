@@ -1,6 +1,6 @@
 import json
-import logging
 import os
+import sys
 import time
 
 import git
@@ -35,12 +35,25 @@ def fetch_repositories():
 
 
 def run():
-    github_root = '/Volumes/WDDATA/git/bitbucket'
+    github_root = '/Volumes/WDDATA4T/git/bitbucket'
     repositories = fetch_repositories()
-    print(f'count: {len(repositories)}')
+    count = len(repositories)
+    print(f'Total count: {count}')
 
-    index = 0
+    c_success_count = 0
+    c_fail_count = 0
+    f_success_count = 0
+    f_fail_count = 0
+    index = -1
+
+    def progress():
+        return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'
+
+    def duration(start_time):
+        return f'done in {round(time.time() - start_time, 1)}s'
+
     for repository in repositories:
+        index += 1
         path = repository['full_name']
         clone_url = ''
         for clone_info in repository['links']['clone']:
@@ -51,31 +64,41 @@ def run():
 
         local_git = os.path.join(github_root, path)
 
-        print('---------------------------------------')
-        print(f'{index} {path}')
         if os.path.exists(local_git):
-            print(f'exist')
             repo = None
-            start_time = time.time()
+            stime = time.time()
             try:
-                print('origin pull')
+                print(f'\rCheck out: {progress()} fetch {path}', end='')
                 repo = git.Repo(local_git)
                 repo.remote().pull()
-                print(f'origin pull success, duration: {round(time.time() - start_time, 1)}s')
+                print(f'\rCheck out: {progress()} fetch {path} success, {duration(stime)}')
+                f_success_count += 1
             except Exception as e:
-                logging.error(f'origin pull fail, duration: {round(time.time() - start_time, 1)}s, e = {e}')
+                print(f'\rCheck out: {progress()} fetch {path} fail, {duration(stime)}', file=sys.stderr)
+                print(f'e = {e}')
+                f_fail_count += 1
             finally:
                 repo.close()
         else:
-            print(f'clone')
-            start_time = time.time()
+            stime = time.time()
             try:
-                git.Repo.clone_from(clone_url, local_git)
-                print(f'clone success, duration: {round(time.time() - start_time, 2)}s')
+                msg = f'\rCheck out: {progress()} clone {path}'
+                print(msg, end='')
+
+                def callback(op_code, cur_count, max_count=None, message=''):
+                    percent = 0 if max_count is None else round((cur_count / max_count) * 100)
+                    print(f'{msg} {percent}%', end='')
+
+                git.Repo.clone_from(clone_url, local_git, progress=callback)
+                print(f'\rCheck out: {progress()} clone {path} success, {duration(stime)}')
+                c_success_count += 1
             except Exception as e:
-                logging.error(f'clone fail, duration: {round(time.time() - start_time, 2)}s, e = {e}')
-        print('---------------------------------------')
-        index += 1
+                print(f'\rCheck out: {progress()} clone {path} fail, {duration(stime)}', file=sys.stderr)
+                print(f'e = {e}')
+                c_fail_count += 1
+
+    print(f'Check out: total clone ({c_success_count}/{c_fail_count + c_success_count})')
+    print(f'Check out: total fetch ({f_success_count}/{f_fail_count + f_success_count})')
 
 
 if __name__ == '__main__':

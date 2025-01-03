@@ -57,7 +57,7 @@ def run():
     projects = fetch_projects()
 
     count = len(projects)
-    print(f'total count: {count}')
+    print(f'Total count: {count}')
 
     with open('gitlab_access.json', 'r') as file:
         data = json.loads(file.read())
@@ -100,8 +100,14 @@ def run():
         else:
             stime = time.time()
             try:
-                print(f'\rCheck out: {progress()} clone {path}', end='')
-                git.Repo.clone_from(repository_url, local_git)
+                msg = f'\rCheck out: {progress()} clone {path}'
+                print(msg, end='')
+
+                def callback(op_code, cur_count, max_count=None, message=''):
+                    percent = 0 if max_count is None else round((cur_count / max_count) * 100)
+                    print(f'{msg} {percent}%', end='')
+
+                git.Repo.clone_from(repository_url, local_git, progress=callback)
                 print(f'\rCheck out: {progress()} clone {path} success, {duration(stime)}')
                 c_success_count += 1
             except Exception as e:
