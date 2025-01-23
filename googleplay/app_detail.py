@@ -1,3 +1,5 @@
+import time
+
 from bs4 import BeautifulSoup
 
 from selenium import webdriver
@@ -25,17 +27,20 @@ class AppDetail:
 
 
 def main():
-    chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    options = Options()
+    # options.add_argument('--headless')
+    options.add_argument("--lang=en-US")
+    options.add_argument("--timezone=America/New_York")
     service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
-    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver = webdriver.Chrome(service=service, options=options)
     driver.get('https://play.google.com/store/apps/details?id=qrcodereader.barcodescanner.scan.qrscanner')
     html = driver.page_source
+    time.sleep(100000)
     driver.quit()
     AppDetail(html)
 
 
 if __name__ == '__main__':
-    # main()
+    main()
     with open('temp.txt', 'r') as file:
         AppDetail(file.read())

@@ -19,7 +19,7 @@ def walk_git(root_dir):
 
 
 def sync_3rd_github():
-    github_dir = '/Volumes/WDDATA/git/github'
+    github_dir = '/Volumes/WDDATA4T/git/github'
     index = 0
     for proj_path in walk_git(github_dir):
         print('---------------------------------------')
