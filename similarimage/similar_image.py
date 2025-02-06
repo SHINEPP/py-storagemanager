@@ -10,7 +10,7 @@ class ImageFeatures:
 
     def __init__(self):
         # 加载 TFLite 模型
-        model_path = 'mobilenet-v3-tensorflow2-large-075-224-feature-vector-v1.tflite'
+        model_path = 'mobilenet-v2-tensorflow2-100-224-feature-vector-v2.tflite'
         self.interpreter = tf.lite.Interpreter(model_path=model_path)
         self.interpreter.allocate_tensors()
 
