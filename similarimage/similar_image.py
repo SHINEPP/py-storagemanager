@@ -29,7 +29,9 @@ class ImageFeatures:
         img = tf.image.resize(img, (224, 224))  # 调整输入尺寸
         img = tf.expand_dims(img, axis=0) / 255.0  # 归一化
 
-        self.interpreter.set_tensor(self.input_details[0]['index'], img.numpy().astype(np.float32))
+        data = img.numpy().astype(np.float32)
+
+        self.interpreter.set_tensor(self.input_details[0]['index'], data)
         self.interpreter.invoke()  # 运行推理
         feature_vector = self.interpreter.get_tensor(self.output_details[0]['index'])
 
