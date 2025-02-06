@@ -10,7 +10,7 @@ class ImageFeatures:
 
     def __init__(self):
         # 加载 TFLite 模型
-        self.interpreter = tf.lite.Interpreter(model_path="mobilenet_v2.tflite")
+        self.interpreter = tf.lite.Interpreter(model_path="mobilenet-v3-tensorflow2-large-075-224-classification-v1.tflite")
         self.interpreter.allocate_tensors()
 
         # 获取输入/输出张量信息
@@ -20,7 +20,7 @@ class ImageFeatures:
         print("输入张量:", self.input_details)
         print("输出张量:", self.output_details)
 
-    def extract_vector(self, image_path):
+    def extract_features(self, image_path):
         """ 计算图片的特征向量 """
         img = tf.io.read_file(image_path)
         img = tf.image.decode_jpeg(img, channels=3)
@@ -49,8 +49,8 @@ def main_test():
     for root, dirs, files in os.walk(img_dir):
         for file in files:
             path = os.path.join(root, file)
-            values = features.extract_vector(path)
-            results.append({'path': path, 'values': values})
+            values = features.extract_features(path)
+            results.append({'path': path, 'features': values})
 
     if os.path.exists(img_out_dir):
         shutil.rmtree(img_out_dir)
@@ -62,9 +62,11 @@ def main_test():
             path2 = results[j]['path']
             name1 = os.path.split(path1)[-1]
             name2 = os.path.split(path2)[-1]
-            similarity = cosine_similarity(results[i]['values'], results[j]['values'])
+            features1 = results[i]['features']
+            features2 = results[j]['features']
+            similarity = cosine_similarity(features1, features2)
             print(f'{i} - {j}, 相似度: {similarity}, {name1} - {name2}')
-            if similarity > 0.95:
+            if similarity > 0.7:
                 out_dir = os.path.join(img_out_dir, f'V{similarity}')
                 os.makedirs(out_dir, exist_ok=True)
                 shutil.copyfile(path1, os.path.join(out_dir, name1))
