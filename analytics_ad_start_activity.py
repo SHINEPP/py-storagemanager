@@ -17,18 +17,20 @@ ad_activity_names = ['com.anythink.basead.ui.ATLandscapeActivity',
                      'com.bytedance.sdk.openadsdk.activity.TTLandingPageActivity',
                      'sg.bigo.ads.api.CompanionAdActivity',
                      'com.anythink.expressad.reward.player.ATRewardVideoActivity',
-                     'com.anythink.basead.ui.ATPortraitActivity']
+                     'com.anythink.basead.ui.ATPortraitActivity',
+                     'com.opt.bu.ss.c',
+                     'com.opt.bu.ss.a']
 
 if __name__ == '__main__':
 
-    app_name = 'file_manager_box'
+    app_name = 'privacy_security_browser'
 
     sql1 = f'''
 SELECT event_date_utc, json_extract(event_parameters, '$.component') as component, count(*) as event_count
 FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name = 'business_startactivity' 
-AND json_extract(event_parameters, '$.app_version')  = '10'
-AND event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-17'
+AND json_extract(event_parameters, '$.app_version')  = '8'
+AND event_date_utc >= '2025-02-10' AND event_date_utc <= '2025-02-17'
 GROUP BY event_date_utc, json_extract(event_parameters, '$.component')
 ORDER BY event_date_utc DESC
 LIMIT 0, 10000
@@ -38,8 +40,8 @@ LIMIT 0, 10000
 SELECT event_date_utc, json_extract(event_parameters, '$.component') as component, count(*) as event_count
 FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name = 'business_activityviewed' 
-AND json_extract(event_parameters, '$.app_version')  = '10'
-AND event_date_utc >= '2024-12-15' AND event_date_utc <= '2024-12-17'
+AND json_extract(event_parameters, '$.app_version')  = '8'
+AND event_date_utc >= '2025-02-10' AND event_date_utc <= '2025-02-17'
 GROUP BY event_date_utc, json_extract(event_parameters, '$.component')
 ORDER BY event_date_utc DESC
 LIMIT 0, 10000
@@ -52,7 +54,7 @@ LIMIT 0, 10000
         rows2 = cursor.fetchall()
 
         date_text = datetime.now().strftime('%m%d%H%M%S')
-        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/{app_name}_ad_start_activity_1.9_date_text.csv'
+        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/{app_name}_ad_start_activity_1.7_date_text.csv'
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
