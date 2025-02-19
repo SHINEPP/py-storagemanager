@@ -1,3 +1,4 @@
+import json
 import os.path
 
 import requests
@@ -10,13 +11,16 @@ def upload_apk(apk: str):
     result: https://www.virustotal.com/gui/file-analysis/[id]
     """
     url = 'https://www.virustotal.com/api/v3/files'
-    files = {'file': (os.path.splitext(apk)[-1], open(apk, 'rb'), 'application/vnd.android.package-archive')}
+    files = {'file': (os.path.split(apk)[-1], open(apk, 'rb'), 'application/vnd.android.package-archive')}
     headers = {
         'accept': 'application/json',
         'x-apikey': x_apikey
     }
     response = requests.post(url, files=files, headers=headers)
     print(response.text)
+
+    result = json.loads(response.text)
+    print(f'https://www.virustotal.com/gui/file-analysis/{result["data"]["id"]}')
 
 
 def get_report(file_id: str):
@@ -34,6 +38,6 @@ def get_report(file_id: str):
 
 
 if __name__ == '__main__':
-    path = '/Users/zhouzhenliang/Desktop/app-release.apk'
-    # upload_apk(path)
-    get_report('1d1ad281426db09c069a46e1cc3c843fd17db0dee35a367e5e030a791ef8e71b')
+    path = '/Users/zhouzhenliang/source/google5/app-business/app/build/outputs/apk/release/app-release.apk'
+    upload_apk(path)
+    # get_report('1d1ad281426db09c069a46e1cc3c843fd17db0dee35a367e5e030a791ef8e71b')
