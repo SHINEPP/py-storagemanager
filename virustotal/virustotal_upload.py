@@ -6,12 +6,29 @@ import requests
 x_apikey = '3ff336ede3210e7cd3c29377d0fafd07fb8ba2e999934bde845eca286bedb39a'
 
 
-def upload_apk(apk: str):
+def get_large_file_url():
+    url = 'https://www.virustotal.com/api/v3/files/upload_url'
+    headers = {
+        'accept': 'application/json',
+        'x-apikey': x_apikey
+    }
+    response = requests.get(url, headers=headers)
+    print(response.text)
+    result = json.loads(response.text)
+    return result['data']
+
+
+def upload_file(file: str):
     """
     result: https://www.virustotal.com/gui/file-analysis/[id]
     """
-    url = 'https://www.virustotal.com/api/v3/files'
-    files = {'file': (os.path.split(apk)[-1], open(apk, 'rb'), 'application/vnd.android.package-archive')}
+    file_size = os.path.getsize(file)
+    if file_size > 32 * 1024 * 1024:
+        url = get_large_file_url()
+    else:
+        url = 'https://www.virustotal.com/api/v3/files'
+
+    files = {'file': (os.path.split(file)[-1], open(file, 'rb'), 'application/vnd.android.package-archive')}
     headers = {
         'accept': 'application/json',
         'x-apikey': x_apikey
@@ -38,6 +55,6 @@ def get_report(file_id: str):
 
 
 if __name__ == '__main__':
-    path = '/Users/zhouzhenliang/source/google5/app-business/app/build/outputs/apk/release/app-release.apk'
-    upload_apk(path)
+    path = '/Users/zhouzhenliang/Desktop/temp1/base.apk'
+    upload_file(path)
     # get_report('1d1ad281426db09c069a46e1cc3c843fd17db0dee35a367e5e030a791ef8e71b')
