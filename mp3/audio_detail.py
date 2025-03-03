@@ -1,3 +1,4 @@
+import sys
 from urllib.parse import urlparse
 
 from selenium import webdriver
@@ -19,6 +20,7 @@ class AudioDetailParser:
         chrome_options.add_argument('--headless')  # 无界面模式
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
+        self.driver.set_page_load_timeout(5)
 
         sql = ('SELECT detail_url, name, upload_time '
                'FROM audio_kumeiwp A '
@@ -43,7 +45,11 @@ class AudioDetailParser:
         self.driver.quit()
 
     def _parse_detail_page(self, detail_url):
-        self.driver.get(detail_url)
+        try:
+            self.driver.get(detail_url)
+        except Exception as e:
+            print(f'detail_url = {detail_url}, e = {e}', file=sys.stderr)
+            return None, None
         layout_box = self.driver.find_element(By.CLASS_NAME, 'layout_box')
         if not layout_box:
             return None, None
