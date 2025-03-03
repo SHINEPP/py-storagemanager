@@ -1,4 +1,4 @@
-import threading
+from urllib.parse import urlparse
 
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -7,10 +7,8 @@ from selenium.webdriver.common.by import By
 
 from mp3.mysql_connection import open_mysql
 
-from urllib.parse import urlparse
 
-
-class Mp3Detail:
+class AudioDetailParser:
 
     def __init__(self):
         self.driver = None
@@ -67,5 +65,5 @@ class Mp3Detail:
 
 
 if __name__ == '__main__':
-    impl = Mp3Detail()
+    impl = AudioDetailParser()
     impl.start()

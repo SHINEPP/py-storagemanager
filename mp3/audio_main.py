@@ -6,7 +6,7 @@ from selenium.webdriver.common.by import By
 from mp3.mysql_connection import open_mysql
 
 
-class Mp3Distributions:
+class AudioMainParser:
 
     def __init__(self):
         self.driver = None
@@ -85,5 +85,5 @@ class Mp3Distributions:
 
 
 if __name__ == '__main__':
-    impl = Mp3Distributions()
+    impl = AudioMainParser()
     impl.start()

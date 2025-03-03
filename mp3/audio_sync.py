@@ -7,7 +7,7 @@ import requests
 from mp3.mysql_connection import open_mysql
 
 
-class Mp3Syncer:
+class AudioDownloader:
 
     def __init__(self):
         self.repository_dir = '/Volumes/WDDATA4T/audio/kumeiwp/repository'
@@ -18,9 +18,9 @@ class Mp3Syncer:
         with open_mysql() as cursor:
             cursor.execute(sql)
             for row in cursor:
-                self._handle_row(row)
+                self._process_row(row)
 
-    def _handle_row(self, row):
+    def _process_row(self, row):
         download_url = row[0]
         local_path = row[1]
         path = self.repository_dir + local_path
@@ -66,5 +66,5 @@ class Mp3Syncer:
 
 
 if __name__ == '__main__':
-    impl = Mp3Syncer()
+    impl = AudioDownloader()
     impl.start()
