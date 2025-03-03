@@ -7,6 +7,8 @@ from selenium.webdriver.common.by import By
 
 from mp3.mysql_connection import open_mysql
 
+from urllib.parse import urlparse
+
 
 class Mp3Detail:
 
@@ -24,7 +26,7 @@ class Mp3Detail:
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
 
-        sql = 'SELECT detail_url FROM audio_kumeiwp LIMIT 5'
+        sql = 'SELECT detail_url, name, upload_time FROM audio_kumeiwp LIMIT 5'
         with open_mysql() as cursor:
             cursor.execute(sql)
             for row in cursor:
@@ -33,6 +35,12 @@ class Mp3Detail:
                 title, download_url = self._parse_detail_page(detail_url)
                 if title and download_url:
                     print(f'{title}: {download_url}')
+                    parsed_url = urlparse(download_url)
+                    path = parsed_url.path
+                    sql2 = f'REPLACE INTO audio_kumeiwp_detail(detail_url,download_url,local_path) VALUES(%s,%s,%s)'
+                    values = (detail_url, download_url, path)
+                    with open_mysql() as cursor2:
+                        cursor2.execute(sql2, values)
 
         self.driver.quit()
 
