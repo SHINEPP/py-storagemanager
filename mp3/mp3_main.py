@@ -10,7 +10,6 @@ class Mp3Distributions:
 
     def __init__(self):
         self.driver = None
-        self.distributions = []
 
     def start(self):
         # chromedriver
@@ -19,9 +18,10 @@ class Mp3Distributions:
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
 
-        for page in range(1, 2167):
-            self._fetch_distributions(page)
-            for dist in self.distributions:
+        for page in range(2166, 2168):
+            distributions = self._fetch_distributions(page)
+            print(f'distributions count: {len(distributions)}')
+            for dist in distributions:
                 sql = f'REPLACE INTO audio_kumeiwp(detail_url,name,size,upload_user,upload_time,page_url) VALUES(%s,%s,%s,%s,%s,%s)'
                 values = (
                     dist['detail_url'],
@@ -33,12 +33,10 @@ class Mp3Distributions:
                 with open_mysql() as cursor:
                     cursor.execute(sql, values)
 
-        print(f'distributions count: {len(self.distributions)}')
-
         self.driver.quit()
 
     def _fetch_distributions(self, page):
-        self.distributions.clear()
+        distributions = []
 
         page_url = f'https://www.kumeiwp.com/cate/1-{page}.html'
         self.driver.get(page_url)
@@ -80,8 +78,10 @@ class Mp3Distributions:
                     'upload_time': row_upload_time,
                     'page_url': page_url,
                 }
-                self.distributions.append(item)
+                distributions.append(item)
                 print(f'item = {item}')
+
+        return distributions
 
 
 if __name__ == '__main__':

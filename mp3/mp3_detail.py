@@ -14,10 +14,6 @@ class Mp3Detail:
 
     def __init__(self):
         self.driver = None
-        self.distributions = []
-        self.gradle_dir = '/Volumes/WDDATA4T/audio'
-        self.download_index = 0
-        self.lock = threading.Lock()
 
     def start(self):
         # chromedriver
@@ -26,7 +22,11 @@ class Mp3Detail:
         service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
         self.driver = webdriver.Chrome(service=service, options=chrome_options)
 
-        sql = 'SELECT detail_url, name, upload_time FROM audio_kumeiwp LIMIT 5'
+        sql = ('SELECT detail_url, name, upload_time '
+               'FROM audio_kumeiwp A '
+               'WHERE NOT EXISTS ('
+               'SELECT 1 FROM audio_kumeiwp_detail B WHERE B.detail_url = A.detail_url'
+               ')')
         with open_mysql() as cursor:
             cursor.execute(sql)
             for row in cursor:
@@ -52,7 +52,10 @@ class Mp3Detail:
         layui_card = layout_box.find_element(By.CLASS_NAME, 'layui-card')
         if not layui_card:
             return None, None
-        wai1s = layui_card.find_elements(By.CLASS_NAME, 'wai1')
+        r = layout_box.find_element(By.CLASS_NAME, 'r')
+        if not r:
+            return None, None
+        wai1s = r.find_elements(By.CLASS_NAME, 'wai1')
         if wai1s and len(wai1s) == 4:
             item1 = wai1s[0]
             values = item1.find_elements(By.TAG_NAME, 'div')
