@@ -41,7 +41,7 @@ def output_ics(rows: list[dict]):
             dtend = int(dtend)
             dtend_date = datetime.fromtimestamp(dtend / 1000)
             event.add('DTEND', dtend_date)  # 事件结束时间
-        event.add('DESCRIPTION', 'From: HUAWEI Mate 40 Pro')
+        event.add('DESCRIPTION', 'HUAWEI Mate 40 Pro')
         event.add('UID', event_uuid)
         event.add('STATUS', 'CONFIRMED')
         event.add('CLASS', 'PUBLIC')
