@@ -18,17 +18,20 @@ class AudioDownloader:
         with open_mysql() as cursor:
             cursor.execute(sql)
             for row in cursor:
-                self._process_row(row)
+                download_url = row[0]
+                local_path = row[1]
+                self._process_row(download_url, local_path)
 
-    def _process_row(self, row):
-        download_url = row[0]
-        local_path = row[1]
+    def _process_row(self, download_url, local_path):
         path = self.repository_dir + local_path
+        tmp_path = path + '.tmp_download'
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
         if os.path.exists(path):
             print(f'file exist, path: {local_path}', file=sys.stderr)
             return
 
-        msg = f'{download_url} -> {local_path}'
+        msg = f'{download_url}'
         print(f'start download, {msg}', end='')
         start_time = time.time()
         try:
@@ -38,7 +41,6 @@ class AudioDownloader:
             if content_type == 'application/octet-stream':
                 response.raise_for_status()  # 检查请求是否成功
                 os.makedirs(os.path.dirname(path), exist_ok=True)
-                tmp_path = path + '.tmp_download'
                 total_text = None
                 if content_length > 0:
                     total_text = f'{round(content_length / 1024 / 1024, 3)}MB'
@@ -61,6 +63,8 @@ class AudioDownloader:
         except Exception as e:
             if os.path.exists(path):
                 os.remove(path)
+            if os.path.exists(tmp_path):
+                os.remove(tmp_path)
             dur_text = round(time.time() - start_time, 2)
             print(f'\rdownload fail, {msg}, duration: {dur_text}s, e: {e}', file=sys.stderr)
 

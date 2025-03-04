@@ -1,0 +1,4 @@
+
+adb shell content query --uri content://com.android.calendar/calendars
+adb shell content query --uri content://com.android.calendar/events
+adb shell content query --uri content://com.android.calendar/reminders
