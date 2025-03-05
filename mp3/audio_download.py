@@ -14,9 +14,9 @@ class AudioDownloader:
         pass
 
     def start(self):
-        sql = 'SELECT download_url, local_path FROM audio_kumeiwp_detail'
+        sql = 'SELECT download_url, local_path FROM audio_kumeiwp_detail WHERE download_times <= %s'
         with open_mysql() as cursor:
-            cursor.execute(sql)
+            cursor.execute(sql, 0)
             for row in cursor:
                 download_url = row[0]
                 local_path = row[1]
@@ -51,12 +51,12 @@ class AudioDownloader:
                         size += len(chunk)
                         size_text = f'{round(size / 1024 / 1024, 3)}MB'
                         if total_text:
-                            print(f'\rdownload progress, {msg}, {size_text}/{total_text}', end='')
+                            print(f'\rdownloading, {msg}, {size_text}/{total_text}', end='')
                         else:
-                            print(f'\rdownload progress, {msg}, {size_text}', end='')
+                            print(f'\rdownloading, {msg}, {size_text}', end='')
                 os.rename(tmp_path, path)
                 dur_text = round(time.time() - start_time, 2)
-                print(f'\rdownload success, {msg}, duration: {dur_text}s')
+                print(f'\rdownload success, {msg}, size: {total_text} duration: {dur_text}s')
             else:
                 dur_text = round(time.time() - start_time, 2)
                 print(f'\rdownload fail, {msg}, {response.text}, duration: {dur_text}s', file=sys.stderr)
@@ -67,6 +67,10 @@ class AudioDownloader:
                 os.remove(tmp_path)
             dur_text = round(time.time() - start_time, 2)
             print(f'\rdownload fail, {msg}, duration: {dur_text}s, e: {e}', file=sys.stderr)
+
+        sql = 'UPDATE audio_kumeiwp_detail SET download_times = download_times + 1 WHERE download_url = %s'
+        with open_mysql() as cursor:
+            cursor.execute(sql, download_url)
 
 
 if __name__ == '__main__':
