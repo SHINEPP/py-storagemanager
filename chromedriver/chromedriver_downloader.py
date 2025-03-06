@@ -10,7 +10,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
 
 
-class GradleDistributions:
+class Distributions:
 
     def __init__(self):
         self.driver_version = ''
@@ -100,5 +100,5 @@ class GradleDistributions:
 
 
 if __name__ == '__main__':
-    impl = GradleDistributions()
+    impl = Distributions()
     impl.start()
