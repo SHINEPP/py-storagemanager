@@ -113,7 +113,7 @@ class BusinessGit:
                 continue
             distance1 = self._rev_list_count(commits[0], commit)
             distance2 = self._rev_list_count(commits[0], base_head.commit)
-            if distance1 < min_distance or (distance1 == min_distance and distance2 < min_distance2):
+            if distance1 < min_distance or (distance1 == min_distance and distance2 <= min_distance2):
                 min_distance = distance1
                 min_head = base_head
                 min_distance2 = distance2
