@@ -51,16 +51,13 @@ class BusinessGit:
                 return
             for i in range(count):
                 n = groups[i]
-                name = f'{node.base_commited_datetime}	{n.master.name}'
+                base_time = node.base_commited_datetime
+                base_name = n.master.name
+                sep = '+-------------->'
                 if i == 0:
-                    show_name = name
-                    sep = '+-------------->'
-                elif i == count - 1:
-                    show_name = ' ' * len(name)
-                    sep = '+-------------->'
+                    show_name = f'{base_time}	{base_name}'
                 else:
-                    show_name = ' ' * len(name)
-                    sep = '+-------------->'
+                    show_name = f'{" " * len(base_time)}	{" " * len(base_name)}'
                 print(f'{show_name}	{sep}	{n.app_commited_datetime}	{n.app.name}')
             groups.clear()
             print()
