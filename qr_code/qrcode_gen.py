@@ -16,4 +16,4 @@ def gen_qrcode(data: str):
 
 
 if __name__ == '__main__':
-    gen_qrcode('https://play.google.com/store/apps/details?id=com.wheresmyphone.eltools')
+    gen_qrcode('https://play.google.com/store/apps/details?id=com.filespecialist.storagem')

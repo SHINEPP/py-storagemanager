@@ -10,29 +10,30 @@ from mp3.mysql_connection import open_mysql
 class AudioDownloader:
 
     def __init__(self):
-        self.repository_dir = '/Volumes/WDDATA4T/audio/kumeiwp/repository'
+        self.repository_dir = '/Volumes/US100/audio/kumeiwp/repository'
         pass
 
     def start(self):
-        sql = 'SELECT download_url, local_path FROM audio_kumeiwp_detail WHERE download_times <= %s'
+        sql = 'SELECT name, download_url, local_path FROM audio_kumeiwp_detail_view WHERE download_times <= %s'
         with open_mysql() as cursor:
             cursor.execute(sql, 0)
             for row in cursor:
-                download_url = row[0]
-                local_path = row[1]
-                self._process_row(download_url, local_path)
+                name = row[0]
+                download_url = row[1]
+                local_path = row[2]
+                self._process_row(name, download_url, local_path)
 
-    def _process_row(self, download_url, local_path):
+    def _process_row(self, name, download_url, local_path):
         path = self.repository_dir + local_path
         tmp_path = path + '.tmp_download'
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
         if os.path.exists(path):
-            print(f'file exist, path: {local_path}', file=sys.stderr)
+            print(f'file exist, {name}, path: {local_path}', file=sys.stderr)
             return
 
         msg = f'{download_url}'
-        print(f'start download, {msg}', end='')
+        print(f'start download, {name}, {msg}', end='')
         start_time = time.time()
         try:
             response = requests.get(download_url, stream=True)  # 开启流式下载
@@ -51,22 +52,22 @@ class AudioDownloader:
                         size += len(chunk)
                         size_text = f'{round(size / 1024 / 1024, 3)}MB'
                         if total_text:
-                            print(f'\rdownloading, {msg}, {size_text}/{total_text}', end='')
+                            print(f'\rdownloading, {name}, {msg}, {size_text}/{total_text}', end='')
                         else:
-                            print(f'\rdownloading, {msg}, {size_text}', end='')
+                            print(f'\rdownloading, {name}, {msg}, {size_text}', end='')
                 os.rename(tmp_path, path)
                 dur_text = round(time.time() - start_time, 2)
-                print(f'\rdownload success, {msg}, size: {total_text} duration: {dur_text}s')
+                print(f'\rdownload success, {name}, {msg}, size: {total_text} duration: {dur_text}s')
             else:
                 dur_text = round(time.time() - start_time, 2)
-                print(f'\rdownload fail, {msg}, {response.text}, duration: {dur_text}s', file=sys.stderr)
+                print(f'\rdownload fail, {name}, {msg}, {response.text}, duration: {dur_text}s', file=sys.stderr)
         except Exception as e:
             if os.path.exists(path):
                 os.remove(path)
             if os.path.exists(tmp_path):
                 os.remove(tmp_path)
             dur_text = round(time.time() - start_time, 2)
-            print(f'\rdownload fail, {msg}, duration: {dur_text}s, e: {e}', file=sys.stderr)
+            print(f'\rdownload fail, {name}, {msg}, duration: {dur_text}s, e: {e}', file=sys.stderr)
 
         sql = 'UPDATE audio_kumeiwp_detail SET download_times = download_times + 1 WHERE download_url = %s'
         with open_mysql() as cursor:
