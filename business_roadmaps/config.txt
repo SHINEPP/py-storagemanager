@@ -1,0 +1,4 @@
+1. 添加 git alias
+git config --global alias.runbusiness-roadmaps '!python3 /Users/zhouzhenliang/source/shine/py-storagemanager/business_roadmaps/roadmap_main.py'
+
+2. 添加 Branch.sublime-menu & Commit.sublime-menu

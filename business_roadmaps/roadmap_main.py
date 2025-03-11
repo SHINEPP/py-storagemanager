@@ -1,4 +1,5 @@
 import math
+import time
 
 import git
 import sys
@@ -24,10 +25,14 @@ class BusinessGit:
         self.repo = git.Repo(git_dir)
         self.master_heads = []
         self.app_heads = []
+        self.master_max_len = 0
         for head in self.repo.heads:
             for master_branch in master_branches:
                 if head.name.startswith(master_branch):
                     self.master_heads.append(head)
+                    size = len(head.name)
+                    if size > self.master_max_len:
+                        self.master_max_len = size
                     break
             for app_branch in app_branches:
                 if head.name.startswith(app_branch):
@@ -36,28 +41,33 @@ class BusinessGit:
 
     def start(self):
         nodes = []
-        for app_head in self.app_heads:
-            print('-' * 80)
+        app_head_count = len(self.app_heads)
+        for i in range(app_head_count):
+            app_head = self.app_heads[i]
+            app_head_text = f'\r[{i + 1}/{app_head_count}] {app_head.name}'
+            print(app_head_text + ' ' * 16, end='')
             master_head, base_commit, features = self._parent_master(app_head.commit.hexsha)
             if master_head and base_commit:
                 nodes.append(ReleaseNode(app_head, master_head, base_commit))
 
+        print('\r' + ' ' * 40)
+
         # 输出结果
-        print('=' * 80)
 
         def handle_group_nodes(groups):
             count = len(groups)
             if count == 0:
                 return
-            for i in range(count):
-                n = groups[i]
+            for j in range(count):
+                n = groups[j]
                 base_time = node.base_commited_datetime
-                base_name = n.master.name
+                master_name = n.master.name
+                master_name = ' ' * (self.master_max_len - len(master_name)) + master_name
                 sep = '+-------------->'
-                if i == 0:
-                    show_name = f'{base_time}	{base_name}'
+                if j == 0:
+                    show_name = f'{base_time}	{master_name}'
                 else:
-                    show_name = f'{" " * len(base_time)}	{" " * len(base_name)}'
+                    show_name = f'{" " * len(base_time)}	{" " * len(master_name)}'
                 print(f'{show_name}	{sep}	{n.app_commited_datetime}	{n.app.name}')
             groups.clear()
             print()
@@ -71,20 +81,6 @@ class BusinessGit:
         handle_group_nodes(group_nodes)
 
     def _parent_master(self, commit: str):
-        # 判断commit还是branch
-        is_in_branch = False
-        for head in self.repo.heads:
-            if head.name == commit:
-                is_in_branch = True
-                print(f'branch: {commit}')
-                print(f'commit: {head.commit}')
-                break
-
-        if not is_in_branch:
-            print(f'commit: {commit}')
-            for head in self.repo.heads:
-                if head.commit.hexsha == commit:
-                    print(f'branch: {head.name}')
 
         # 输出features
         features = []
@@ -94,13 +90,7 @@ class BusinessGit:
                 distance = self._rev_list_count(commit, head.commit)
                 if distance > 0:
                     features.append((distance, head.name))
-        features.sort()
-        if len(features) > 0:
-            features = sorted(features, key=lambda x: x[0])
-            print()
-            print('features:')
-            for feature in features:
-                print(f'[{feature[0]}]{feature[1]}')
+        features = sorted(features, key=lambda x: x[0])
 
         # 计算最近的master*
         min_distance = math.inf
@@ -118,23 +108,6 @@ class BusinessGit:
                 min_head = base_head
                 min_distance2 = distance2
                 base_commit = commits[0]
-
-        # 输出结果
-        print()
-        print('source:')
-        if min_head:
-            print(f'name: {min_head.name}')
-            print(f'commit: {min_head.commit}')
-            print(f'distance: {min_distance}')
-        else:
-            print('not found')
-
-        print()
-        print('base:')
-        if base_commit:
-            print(f'commit: {base_commit.hexsha}')
-        else:
-            print('not found')
 
         return min_head, base_commit, features
 

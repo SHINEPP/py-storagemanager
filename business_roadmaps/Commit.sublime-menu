@@ -1,0 +1,15 @@
+[
+    {
+        "caption": "Roadmaps Analytics",
+        "command": "git",
+        "args":
+        {
+            "argv":
+            [
+                "runbusiness-roadmaps",
+                "$working_dir",
+                "$commit"
+            ]
+        }
+    }
+]

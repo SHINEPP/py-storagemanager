@@ -1,0 +1,15 @@
+[
+    {
+        "caption": "Source Analytics",
+        "command": "git",
+        "args":
+        {
+            "argv":
+            [
+                "runbusinesspython",
+                "$working_dir",
+                "$branch"
+            ]
+        }
+    }
+]

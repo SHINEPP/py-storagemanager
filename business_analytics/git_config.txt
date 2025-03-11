@@ -1,0 +1,1 @@
+git config --global alias.runbusinesspython '!python3 /Users/zhouzhenliang/source/python/py-gittools/business_parent_master.py'
