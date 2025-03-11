@@ -6,6 +6,6 @@ if __name__ == '__main__':
     for root, dirs, names in os.walk(src_path):
         for name in names:
             path = os.path.join(root, name)
-            if path.endswith('.mp3'):
+            if os.path.isfile(path):
                 count += 1
                 print(f'{count}: {path}')
