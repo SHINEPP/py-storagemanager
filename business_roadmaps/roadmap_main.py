@@ -1,5 +1,4 @@
 import math
-import time
 
 import git
 import sys
@@ -26,7 +25,17 @@ class BusinessGit:
         self.master_heads = []
         self.app_heads = []
         self.master_max_len = 0
+
+        all_heads = {}
+        for remote in self.repo.remotes:
+            for head in remote.repo.heads:
+                all_heads[head.commit.hexsha] = head
         for head in self.repo.heads:
+            all_heads[head.commit.hexsha] = head
+
+        self.heads = [i[1] for i in all_heads.items()]
+
+        for head in self.heads:
             for master_branch in master_branches:
                 if head.name.startswith(master_branch):
                     self.master_heads.append(head)
