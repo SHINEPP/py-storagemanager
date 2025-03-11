@@ -1,0 +1,1702 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:versionCode="2" android:versionName="1.0.2" android:compileSdkVersion="33" android:compileSdkVersionCodename="13" package="com.jlmy.jiangxinbox" platformBuildVersionCode="33" platformBuildVersionName="13">
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="30"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.BROADCAST_STICKY"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.USE_CREDENTIALS"/>
+    <uses-permission android:name="android.permission.ACCOUNT_MANAGER"/>
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS"/>
+    <uses-permission android:name="android.permission.REORDER_TASKS"/>
+    <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="com.google.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher2.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher2.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.sprdlauncher1.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.sprdlauncher1.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.android.sprdlauncher2.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.android.sprdlauncher2.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.lenovo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.lenovo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.lenovo.launcherhdmarket.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.lenovo.launcherhdmarket.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.zui.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.zui.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.meizu.flyme.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.meizu.flyme.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.qiku.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.qiku.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.yulong.android.launcher3.READ_SETTINGS"/>
+    <uses-permission android:name="com.yulong.android.launcher3.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.aliyun.homeshell.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.aliyun.homeshell.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.tct.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.tct.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.fineos.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.fineos.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.ztemt.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.ztemt.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.zte.lqsoft.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.zte.lqsoft.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.zte.mifavor.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.zte.mifavor.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.zte.mobile.ZteLauncher3D.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.zte.mobile.ZteLauncher3D.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="cn.nubia.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="cn.nubia.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.sec.android.app.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.sec.android.app.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.sec.android.app.twlauncher.settings.READ_SETTINGS"/>
+    <uses-permission android:name="com.sec.android.app.twlauncher.settings.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.epic.launcher.tw.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.epic.launcher.tw.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.huawei.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher2.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher2.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher3.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher3.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.bbk.launcher2.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.bbk.launcher2.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.smartisanos.launcher.WRITE_DATABASE"/>
+    <uses-permission android:name="com.smartisanos.launcher.READ_DATABASE"/>
+    <uses-permission android:name="com.smartisanos.launcher.data.ExportDataProvider"/>
+    <uses-permission android:name="com.huaqin.launcherEx.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huaqin.launcherEx.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.doov.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.doov.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.asus.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.asus.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.asus.launcher3.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.asus.launcher3.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.konka.launcher2.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.konka.launcher2.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.jui.launcher3.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.jui.launcher3.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.qihoo360.home.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.qihoo360.home.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.qihoo360.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.qihoo360.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="net.qihoo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="net.qihoo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.tencent.qqlauncher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.tencent.qqlauncher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.teslacoilsw.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="com.teslacoilsw.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.READ"/>
+    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE"/>
+    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT"/>
+    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE"/>
+    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE"/>
+    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT"/>
+    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
+    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
+    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ"/>
+    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE"/>
+    <uses-permission android:name="com.jlmy.jiangxinbox.permission.broadcast"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.READ_SYNC_STATS"/>
+    <permission android:name="com.jlmy.jiangxinbox.INTERNAL_BROADCAST_PERMISSIONS" android:protectionLevel="signature"/>
+    <uses-permission android:name="com.jlmy.jiangxinbox.INTERNAL_BROADCAST_PERMISSIONS"/>
+    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.wifi" android:required="false"/>
+    <uses-feature android:name="android.hardware.bluetooth" android:required="false"/>
+    <uses-feature android:name="android.hardware.telephony" android:required="false"/>
+    <uses-feature android:name="android.hardware.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+    <uses-feature android:name="android.hardware.usb.host"/>
+    <instrumentation android:name="com.baidu.jlym.dau.Uda" android:targetPackage="com.jlmy.jiangxinbox" android:targetProcesses="com.jlmy.jiangxinbox,com.jlmy.jiangxinbox:resident,com.jlmy.jiangxinbox:fore"/>
+    <instrumentation android:name="com.baidu.jlym.dau.Bbp" android:targetPackage="com.jlmy.jiangxinbox" android:targetProcesses="com.jlmy.jiangxinbox,com.jlmy.jiangxinbox:system,com.jlmy.jiangxinbox:service"/>
+    <uses-permission android:name="android.Manifest.permission.BROADCAST_CLOSE_SYSTEM_DIALOGS"/>
+    <queries>
+        <package android:name="com.taobao.taobao"/>
+        <package android:name="com.jingdong.app.mall"/>
+        <package android:name="com.xunmeng.pinduoduo"/>
+        <intent>
+            <action android:name="androidx.camera.extensions.action.VENDOR_ACTION"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.MAIN"/>
+            <category android:name="android.intent.category.LAUNCHER"/>
+        </intent>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <category android:name="android.intent.category.BROWSABLE"/>
+            <data android:scheme="https"/>
+        </intent>
+        <package android:name="com.google.android.gms"/>
+        <package android:name="com.android.vending"/>
+        <package android:name="com.android.creator"/>
+        <package android:name="com.mdid.msa"/>
+        <package android:name="com.samsung.android.deviceidservice"/>
+        <package android:name="com.coolpad.deviceidsupport"/>
+        <package android:name="com.heytap.openid"/>
+        <package android:name="com.huawei.hwid"/>
+        <package android:name="com.huawei.hwid.tv"/>
+        <package android:name="com.huawei.hms"/>
+        <package android:name="com.asus.msa.SupplementaryDID"/>
+        <package android:name="com.zui.deviceidservice"/>
+    </queries>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.BATTERY_STATS"/>
+    <uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera.flash" android:required="false"/>
+    <uses-feature android:name="android.hardware.screen.landscape" android:required="false"/>
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="com.jlmy.jiangxinbox.openadsdk.permission.TT_PANGOLIN"/>
+    <uses-permission android:name="com.asus.msa.SupplementaryDID.ACCESS"/>
+    <permission android:name="com.jlmy.jiangxinbox.openadsdk.permission.TT_PANGOLIN" android:protectionLevel="signature"/>
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"/>
+    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"/>
+    <uses-permission android:name="freemme.permission.msa"/>
+    <application android:theme="@style/AppTheme.NoActionBar" android:label="@string/app_name" android:icon="@mipmap/ic_logo" android:name="dca.MLH" android:allowBackup="true" android:hardwareAccelerated="true" android:supportsRtl="true" android:extractNativeLibs="false" android:usesCleartextTraffic="true" android:appComponentFactory="androidx.core.app.CoreComponentFactory" android:requestLegacyExternalStorage="true">
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Bmafka0Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Jttyob1Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Lwskic2Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Cmpygd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Yalaoe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Gkkcxf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Awydbg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Fzwarh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Mxlcti8Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Imvmfj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Exgrwk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Srjcwl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Zxudnm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Jacwen13Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Pjoulo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Ksxkxp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Thwefq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Zhjrjr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Bpesus18Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Eyapot19Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Aihinu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Zqskxv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Kaysow22Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Dszjcx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Oufoty24Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Iwswuz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Tkyywab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Ngougbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Cpwimcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.zyzpia0.Sulmtdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Dhwxva0Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Cgolvb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Bdreoc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Vwynkd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Fsbwbe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Wtsaaf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Feqgdg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Vcmpch7Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Vkzgyi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Dinlwj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Joizrk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Hduofl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Gkpfjm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Jzpujn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Itnolo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Bwstpp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Nrmmyq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Cgpqzr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Gyxrws18Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Pmnrht19Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Exnghu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Kwuqiv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Cutmiw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Qysvhx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Wezlxy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Apdgqz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Rvblcab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Ttyidbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Mucpncb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.znvqeb1.Kskxddb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Nujina0Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Mmvfgb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Yaoswc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Vbmusd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Ugnbme4Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Iknydf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Bmreag6Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Fhxsbh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Mglpji8Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Gnsuwj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Vstvtk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Axnmsl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Anrtzm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Lcmdnn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Skjhxo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Uytsbp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Hwuucq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Vebemr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Bkaxes18Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Lysnht19Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Znupzu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Vuahkv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Nzhskw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Dhtfrx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Zpawvy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Rigerz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Tpnqiab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Xtepmbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Mcfxacb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.vglqyc2.Yegjfdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Dmveda0Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Rdznnb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Frngsc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Qgjwid3Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Sthxve4Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Gxcmif5Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Warpfg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Xnxivh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Orhqei8Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Ctzafj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Fuwxqk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Yyxqdl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Cewoem12Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Fzttwn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Xntzmo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Pukcyp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Lolmiq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Iufeor17Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Sldybs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Vtmugt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Uncjpu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Zsiiav21Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Pdnhpw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Lmpbcx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Pljkuy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Gylpxz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Eryxeab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Yymlbbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Lfusbcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.ylvmgd3.Cnuixdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Teubfa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Tbvitb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Xthknc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Qxifjd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Rpspse4Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Mtcntf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Zweegg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Zjfabh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Xgkthi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Oexmoj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Zazvbk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Tlgaol11Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Imktdm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Kluwkn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Sngiro14Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Brznxp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Wwlmfq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Qsnogr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Wejhzs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Tzhyat19Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Pnbcbu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Budrvv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Hqktvw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Ylxqgx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Gberby24Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Wsslgz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Gpetdab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Rsmzmbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Osvfhcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.wqtive4.Kfakgdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Defuqa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Mhsvgb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Pxyefc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Bgywpd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Lxzroe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Vbvdjf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Ymoqhg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Kenpjh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Gkqywi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Mojjjj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Tcgsqk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Owtyxl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Qgoplm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Osnbvn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Fhojpo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Vsmmjp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Gnkmjq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Fbodlr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Axpkis18Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Nenxat19Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Iitlmu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Ulmwtv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Deukpw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Uufskx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Gwnqqy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Iazysz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Svaxzab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Mrvcmbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Ogkmqcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.vbhfdf5.Eyatsdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Gvjyta0Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Sipklb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Sqbizc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Dpnttd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Ssiqie4Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Sazewf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Cqnktg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Wkialh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Hyxvmi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Hulqyj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Kseivk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Rjmdkl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Ueuoam12Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Frzogn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Lwmndo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Pjmkkp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Cmdbvq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Gcfzqr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Zqvvxs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Apqtmt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Zwtemu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Djfgov21Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Ndfitw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Sjznlx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Glmbyy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Vheynz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Blaexab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Aaghxbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Qpqivcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.spaxvg6.Bfmqedb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Wgoroa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Jswonb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Izmplc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Rrbsyd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Ycjihe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Brgwaf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Mhbwug6Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Nwmvth7Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Lrauhi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Wymrdj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Suanfk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Ddykbl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Ngkvam12Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Tkdcyn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Ojnhyo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Cevydp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Nrkqjq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Gbxclr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Dxdels18Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Lhqdet19Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Nryscu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Mzrpkv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Wykzuw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Pydugx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Mdlevy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Xnsrrz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Srojoab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Sxcyubb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Gydoucb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.vofpoh7.Fxxdqdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Icizwa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Aehfkb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Srjydc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Qgwhyd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Gogfae4Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Ohywcf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Kqflfg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Hlzfjh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Cxpbbi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Ovtdaj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Txdpsk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Ydqenl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Yrbejm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Kqzpyn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Qjviwo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Husqkp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Cgjqpq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Cmijer17Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Zzvhhs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Dxvtjt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Qmedcu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Lnkjqv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Gepunw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Yyexex23Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Jxbxey24Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Gbgfkz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Uqetmab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Dhkmkbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Cxgufcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.ycpkli8.Wkcrydb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Djehwa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Yhfkjb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Nhzmxc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Fvzqhd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Cwkhqe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Sqihsf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Qpumug6Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Vsdzeh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Ebqczi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Xvpqlj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Xdutzk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Grweel11Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Znodjm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Lhbdnn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Wdezso14Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Wwlahp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Poxwaq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Njikjr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Maneqs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Telwst19Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Opnfju20Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Hobudv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Smrgvw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Iigjqx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Iwuwiy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Ippiaz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Jlmetab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Dshefbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Vcrzscb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.atlckj9.Kmozddb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Dxvhqa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Ibzxnb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Wzyhsc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Bnoxbd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Qeauve4Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Unburf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Hggqvg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Ovmhjh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Memeti8Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Sbgsrj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Bzypfk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Cupmxl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Sufnmm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Sbjgbn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Ksllfo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Rnkwdp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Wysciq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Bdvukr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Lqvpis18Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Qiinrt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Wvrfsu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Hxntcv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Xelkvw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Nuivwx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Vcjrwy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Ueqcvz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Igvduab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Ycthzbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Grtjvcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.makmdk10.Adgyfdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Hkdeoa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Hqovhb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Ffreyc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Ghzzgd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Pgrfde4Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Aawoof5Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Ueehxg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Bxshsh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Oicuvi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Mrwtxj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Ttntrk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Oplecl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Whyimm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Zxfypn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Qtxomo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Vsngrp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Swqnlq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Vfbair17Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Ssoges18Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Inlvpt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Khmatu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Xookbv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Jpzauw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Hfjtxx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Ducgmy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Pruqcz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Qechsab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Pluehbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Glhytcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.iccwjl11.Qqxhkdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Woclma0Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Rooxlb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Pumgic2Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Cnarld3Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Kdoive4Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Xltemf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Zwvbag6Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Rmzeth7Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Rhhchi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Bjrdsj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Yetnsk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Yfzxml11Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Xnfbfm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Vhlckn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Idlyxo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Cmrsbp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Ptvyuq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Imzdtr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Mslaos18Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Vimqlt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Pzbteu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Oxezkv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Lqzppw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Thfxlx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Tdptry24Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Pgfjpz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Kysbhab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Lknxhbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Dablrcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.stilsm12.Cckkfdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Moidxa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Qtdmjb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Kazdhc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Cqrivd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Obvame4Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Thkilf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Flwecg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Ibbwwh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Ydjbwi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Prccpj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Kymbqk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Vktwnl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Pfmltm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Qkcsan13Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Wjvduo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Jrurip15Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Lvoewq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Sbscer17Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Uebjys18Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Qfcapt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Wqdzcu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Ofmyev21Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Nmftqw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Ywntix23Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Irszjy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Kqolnz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Rlvifab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Eakbjbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Hqjcacb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.leznpn13.Htpotdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Xkteoa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Kwhbtb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Bpsayc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Glcohd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Xypkie4Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Gghxrf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Flfutg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Pzptoh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Zeriti8Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Aqsmdj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Ejipjk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Vxeenl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Gidixm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Eqjivn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Rvcmpo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Rertgp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Rsollq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Eryxqr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Cnzjys18Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Ogxnht19Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Aezipu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Fxxdfv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Pswklw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Lkmxsx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Meqqjy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Yrmyvz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Uxrztab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Ikmqqbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Vubjtcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.raoulo14.Lfkjwdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Dnolba0Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Rnqncb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Ecybnc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Uvcmid3Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Zmmoae4Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Nnvomf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Icizrg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Bcudph7Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Pucdei8Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Kbyopj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Axewek10Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Tpndwl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Qhsoam12Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Axuosn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Auxpvo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Ocukup15Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Bcpmkq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Ppvvgr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Fkdkos18Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Wjrwot19Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Hpdcyu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Kzmxsv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Mmxhhw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Omlpvx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Biijky24Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Xaolcz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Wrgmbab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Yxafcbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Rymvacb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.rchhkp15.Mlicldb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Loeyia0Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Lvdkeb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Bmwlpc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Zegwpd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Bmogpe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Txgsgf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Zbvajg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Djctnh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Mxtnii8Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Tmtfhj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Iditlk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Vxhbnl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Odwwfm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Nqtyqn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Eronzo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Xksjxp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Evmfzq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Uczypr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Kvtpbs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Czlbjt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Gftoju20Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Zlqluv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Oeysnw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Znyoxx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Yllpny24Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Vycfiz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Tczwcab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Gclcsbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Lqqggcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.uvdebq16.Vkigqdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Onmffa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Opeetb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Yiyprc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Wdermd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Ynjrqe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Bubqvf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Seaqdg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Wvozfh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Neyfmi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Ouhnsj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Rkutfk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Buhttl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Rllhqm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Llxqcn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Smbpuo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Qilnhp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Safpdq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Zbfyvr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Vvrqis18Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Mbpkit19Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Ufetiu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Juwcdv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Xthnqw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Bfvzlx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Ifdcvy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Pkbruz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Subdpab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Cdnlpbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Lmvmycb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.fkgsnr17.Loqpkdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Hwofwa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Xbyxyb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Jqywuc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Gndomd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Plzeae4Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Dxsbgf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Pmprkg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Nirwth7Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Qveavi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Rjocfj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Guansk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Bdjqtl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Uosjlm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Nyaarn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Covyso14Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Eruzjp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Hjohcq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Tvakmr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Urwgts18Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Cneyet19Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Wgrngu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Eennwv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Tzwuew22Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Dzefwx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Xpazqy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Zyskmz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Qimlcab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Lvslqbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Jpcxmcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.rsocvs18.Utzmmdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Laknsa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Ppnpbb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Jfvlsc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Pjwbvd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Wfwuoe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Cqfaif5Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Bangog6Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Jqiych7Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Avahxi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Geveqj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Ueuzmk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Psrjpl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Yuytnm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Uymcun13Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Qjdido14Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Dgblyp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Evysfq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Swbsar17Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Lkwnhs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Pzgaxt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Hzzbvu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Ommkcv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Tscffw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Yijghx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Vpyvyy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Wlccez25Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Tjzydab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Fnnbkbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Jnysqcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.wbroft19.Lgtbhdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Wzseia0Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Maggbb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Htljac2Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Dnhqxd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Plkdqe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Btwkrf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Lqexxg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Syxkjh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Nxovni8Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Urfdnj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Micsck10Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Povrrl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Pmkvem12Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Cnjycn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Jfgbco14Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Qaydnp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Tciirq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Jybopr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Fsawcs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Hointt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Vftdmu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Vbwklv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Ikghjw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Rqbwex23Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Pknwmy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Jttgoz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Mfxttab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Jydjhbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Hphkucb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.btoldu20.Rbdrpdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Zenzba0Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Jqiofb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Yixqdc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Qlybvd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Lojmve4Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Krocqf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Acmyig6Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Bneyuh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Nrpkfi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Jwytsj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Fwhnvk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Aomzfl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Ivclbm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Mofgcn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Xmvkbo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Vevjlp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Vyvquq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Vjohbr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Dcnhvs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Hkwvkt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Aldcnu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Vxxgmv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Tfsuzw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Glcgjx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Wjdsny24Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Aigxxz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Gftfdab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Hckcgbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Fqikjcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.bnjvlv21.Lbohgdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Pzrfra0Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Pjqvlb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Swpahc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Sajvkd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Hpjgce4Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Oyszkf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Orrhjg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Bdkfbh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Qxkcvi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Obqllj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Ygezck10Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Faxjpl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Mqwbpm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Ypbdon13Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Zflqxo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Rxjeep15Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Owclbq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Gsnswr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Cnbahs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Hletbt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Kujeau20Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Kqvpxv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Gtmlmw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Ayoyqx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Hgpvuy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Yapptz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Cfzurab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Olhpabb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Bcbjncb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.sdellw22.Kayfydb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Yipfza0Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Dmnzbb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Qymulc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Rguspd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Ztirve4Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Cpjaff5Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Uamfcg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Wdzewh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Wttpgi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Caczij9Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Icgxak10Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Lcxokl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Fumcjm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Abgonn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Hlireo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Lgohup15Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Iyafcq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Efrcpr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Bjhets18Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Urgtat19Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Dqtsuu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Qmomfv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Xlzhew22Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Idzhix23Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Phdjqy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Jipnhz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Hgqltab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Jtnkibb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Wtvcqcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.razcxx23.Ebayrdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Cpggea0Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Zagovb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Ntiqcc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Jvhmfd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Xcddte4Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Pbbkkf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Ttmssg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Nzkneh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Vjbryi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Oebycj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Fnfegk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Exrmql11Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Bkuowm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Vettcn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Dwpajo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Aruzmp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Oiascq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Jyqrtr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Cdxhks18Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Suaift19Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Yvkcsu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Egygov21Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Bkjrmw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Tmrzxx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Fokiny24Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Foodaz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Lmykgab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Bgjtybb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Grvcpcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.fhgpcy24.Saflkdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Qxlvfa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Yjkgvb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Gyyvsc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Xjksxd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Tudsfe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Yqbhjf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Fxoarg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Lejvqh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Vvebii8Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Plgopj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Akfprk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Ojurpl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Auorhm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Dzcqqn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Ycmqeo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Djqgkp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Ueexvq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Bwtitr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Ubgbls18Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Dvqwat19Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Evaoru20Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Tpjhhv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Blcdmw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Kpevkx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Ddhzvy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Apdizz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Jkypaab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Qqkxvbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Jcdpocb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.ttysoz25.Cnilwdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Pebsaa0Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Lytkeb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Tdjxhc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Yrafcd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Tcbhxe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Qhlsvf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Gcynag6Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Waumrh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Xgddpi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Dxjxnj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Zaaymk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Xpdsbl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Hsultm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Wkplbn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Phumuo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Gtizhp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Uuiqmq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Mmnrxr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Jznizs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Ueyibt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Xjiybu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Bxjbyv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Hanbow22Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Biksvx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Vhfbfy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Hztopz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Fltftab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Hgfcobb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Eavjhcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.zpbuyab26.Orczadb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Qgvuka0Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Rucntb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Dhqyzc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Iwoyhd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Xlnhne4Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Uzfegf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Kvielg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Ypicuh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Bzwbvi8Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Hchedj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Jovukk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Usvdml11Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Bbdymm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Mlchgn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Nbjxno14Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Zjwjfp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Hzpczq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Gltklr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Jcfoas18Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Unzxjt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Szlkku20Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Wrcaiv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Dpsxiw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Rhhjfx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Bcmxqy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Kplfwz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Btiqyab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Rhrcqbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Xpjoccb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.ybrkdbb27.Gmjkudb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Jzqwea0Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Bnqunb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Gjryfc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Ggajed3Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Fetxse4Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Kbdmtf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Voineg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Rxlyoh7Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Cviwii8Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Lalxhj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Niznbk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Wdzhgl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Ixnzfm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Juoben13Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Ucprvo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Dfgcdp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Jybgwq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Scnigr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Pnpbgs18Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Yzjqyt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Vcmreu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Bzvplv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Eaxfaw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Niosyx23Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Gpicey24Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Snumkz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Cytewab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Baormbb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Gfiuncb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.yjpbncb28.Ferjpdb29Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Eqqeia0Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Xmizeb1Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Wxtfbc2Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Pwxegd3Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Ylmxfe4Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Raiwnf5Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Khjprg6Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Senyth7Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Crpfei8Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Ffmxpj9Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Kinqfk10Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Lrtgpl11Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Ojznjm12Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Krkhbn13Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Rfuqvo14Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Hwutcp15Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Jnkgsq16Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Iryxvr17Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Biikns18Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Cyybnt19Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Jofcgu20Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Pqywfv21Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Slbcyw22Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Bxnnux23Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Jpyspy24Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Ijrtdz25Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Eqyciab26Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Ptjiybb27Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Juuxgcb28Activity"/>
+        <activity android:name="com.jiang.xin.ui.pfbmodb29.Vepagdb29Activity"/>
+        <activity android:theme="@style/Transparent" android:name="orb.MLI" android:exported="false" android:launchMode="singleTask"/>
+        <activity android:name="orb.MLJ" android:exported="false"/>
+        <activity android:name="orb.MLK" android:exported="false"/>
+        <activity android:name="orc.MLL" android:exported="false"/>
+        <activity android:name="orc.MLM" android:exported="false"/>
+        <activity android:name="oqu.MLN" android:exported="false"/>
+        <activity android:name="ord.MLO" android:exported="false" android:excludeFromRecents="true"/>
+        <activity android:name="ord.MLP" android:exported="false"/>
+        <activity android:name="oqu.MLQ" android:exported="false"/>
+        <activity android:name="ord.MLR" android:exported="false"/>
+        <activity android:name="ore.MLS" android:exported="false"/>
+        <activity android:name="ore.MLT" android:exported="false"/>
+        <activity android:name="orf.MLU" android:exported="false"/>
+        <activity android:name="org.MLV" android:exported="false"/>
+        <activity android:name="org.MLW" android:exported="false"/>
+        <activity android:name="org.MLX" android:exported="false"/>
+        <activity android:name="ore.MLY" android:exported="false"/>
+        <activity android:name="ore.MLZ" android:exported="false"/>
+        <activity android:name="ore.MMA" android:exported="false"/>
+        <activity android:name="orb.MMB" android:exported="false"/>
+        <activity android:name="orb.MMC" android:exported="false"/>
+        <activity android:name="orb.MMD" android:exported="false"/>
+        <activity android:name="orb.MME">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <activity android:name="oqu.MMF" android:screenOrientation="portrait"/>
+        <activity android:name="orc.MMG" android:launchMode="singleTask" android:screenOrientation="portrait"/>
+        <activity android:name="oqu.MMH" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="orh.MMI" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="oqw.MMJ" android:screenOrientation="portrait"/>
+        <activity android:name="com.jlym.dadd.cleanmore.qq.activity.QQActivity" android:launchMode="singleTask" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="com.jlym.dadd.cleanmore.qq.QQDetailActivity" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"/>
+        <activity android:name="oqw.MMK" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="ori.MML" android:excludeFromRecents="true"/>
+        <activity android:name="orj.MMM" android:screenOrientation="portrait" android:configChanges="orientation|keyboardHidden"/>
+        <service android:name="ork.MMN"/>
+        <activity android:name="orb.MMO" android:launchMode="singleTask"/>
+        <activity android:name="orl.MMP" android:launchMode="singleTask"/>
+        <receiver android:name="orm.MMQ.AppUninstallReceiver">
+            <intent-filter>
+                <action android:name="uninstall_app"/>
+            </intent-filter>
+        </receiver>
+        <activity android:name="orn.MMR" android:launchMode="singleTask"/>
+        <activity android:name="orn.MMS" android:launchMode="singleTask"/>
+        <activity android:name="orn.MMT" android:launchMode="singleTask"/>
+        <activity android:name="orn.MMU" android:launchMode="singleTask"/>
+        <activity android:name="orn.MMV" android:launchMode="singleTask"/>
+        <activity android:name="orn.MMW" android:launchMode="singleTask"/>
+        <activity android:name="ord.MMX" android:excludeFromRecents="true"/>
+        <activity android:name="orb.MMY"/>
+        <activity android:name="oro.MMZ"/>
+        <activity android:name="oqz.MNA"/>
+        <activity android:name="oqz.MNB"/>
+        <activity android:name="oqz.MNC"/>
+        <activity android:name="oqz.MND"/>
+        <activity android:name="oqz.MNE"/>
+        <provider android:name="androidx.core.content.FileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/app_file_path"/>
+        </provider>
+        <service android:name="yn.H" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="false" android:exported="false"/>
+        <service android:name="yn.I" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="false" android:exported="false"/>
+        <service android:name="yn.J" android:permission="android.permission.BIND_JOB_SERVICE" android:exported="true"/>
+        <service android:name="yo.K" android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter"/>
+        </service>
+        <provider android:name="yo.L" android:enabled="true" android:exported="true" android:authorities="com.jlmy.jiangxinbox.library.account.syncprovider" android:syncable="true">
+            <meta-data android:name="@string/contact_name" android:value="true"/>
+        </provider>
+        <service android:name="yo.M" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticators"/>
+        </service>
+        <service android:name="yo.N" android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter_n"/>
+        </service>
+        <service android:name="yp.O"/>
+        <service android:name="yp.P"/>
+        <service android:name="yp.Q"/>
+        <service android:name="yo.S" android:exported="true">
+            <intent-filter>
+                <action android:name="android.content.SyncAdapter"/>
+            </intent-filter>
+            <meta-data android:name="android.content.SyncAdapter" android:resource="@xml/sync_adapter"/>
+        </service>
+        <service android:name="yq.T" android:exported="false" android:process=":resident"/>
+        <provider android:name="yp.U" android:exported="true" android:process=":fore" android:authorities="com.jlmy.jiangxinbox" android:syncable="true"/>
+        <service android:name="yp.V"/>
+        <service android:name="yp.W" android:exported="false"/>
+        <receiver android:name="yr.X" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.ACTION_SHUTDOWN"/>
+                <category android:name="android.intent.category.HOME"/>
+                <action android:name="android.intent.action.SCREEN_ON"/>
+                <action android:name="android.intent.action.SCREEN_OFF"/>
+                <action android:name="android.intent.action.USER_PRESENT"/>
+                <action android:name="android.intent.action.CLOSE_SYSTEM_DIALOGS"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="ys.Y" android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.HOME"/>
+                <action android:name="com.jlmy.jiangxinbox.action.SCREEN_ON"/>
+                <action android:name="com.jlmy.jiangxinbox.action.SCREEN_OFF"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:label="@string/title" android:name="yt.Z" android:exported="true">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider" android:resource="@xml/info_layos"/>
+        </receiver>
+        <service android:name="yu.BA" android:exported="true">
+            <intent-filter>
+                <action android:name="android.accounts.AccountAuthenticator"/>
+            </intent-filter>
+            <meta-data android:name="android.accounts.AccountAuthenticator" android:resource="@xml/authenticator_daemon"/>
+        </service>
+        <provider android:name="yv.BB" android:enabled="true" android:exported="true" android:authorities="com.jlmy.jiangxinbox.qq" android:syncable="true">
+            <meta-data android:name="@string/contact_name" android:value="true"/>
+        </provider>
+        <provider android:name="yv.BC" android:permission="com.jlmy.jiangxinbox.service" android:process=":system" android:authorities="com.jlmy.jiangxinbox.cpb598"/>
+        <provider android:name="yv.BD" android:permission="com.jlmy.jiangxinbox.service" android:process=":service" android:authorities="com.jlmy.jiangxinbox.cpb125"/>
+        <service android:name="yq.BE" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <action android:name="android.speech.RecognitionService"/>
+            </intent-filter>
+        </service>
+        <provider android:name="com.tencent.mm.plugin.base.stub.MMPluginProvider" android:enabled="true" android:exported="true" android:authorities="com.jlmy.jiangxinbox.p0" android:syncable="true">
+            <meta-data android:name="@string/contact_name" android:value="true"/>
+        </provider>
+        <service android:name="yw.BG" android:enabled="true" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.media.browse.MediaBrowserService"/>
+            </intent-filter>
+        </service>
+        <service android:name="yw.BH" android:enabled="true" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.media.MediaRoute2ProviderService"/>
+            </intent-filter>
+        </service>
+        <service android:name="yw.BI" android:enabled="true" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.media.MediaRouteProviderService"/>
+            </intent-filter>
+        </service>
+        <receiver android:name="yx.BJ" android:enabled="false" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="yx.BK" android:enabled="false" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.intent.action.MEDIA_BUTTON"/>
+            </intent-filter>
+        </service>
+        <provider android:name="yw.BL" android:readPermission="android.permission.MANAGE_DOCUMENTS" android:writePermission="android.permission.MANAGE_DOCUMENTS" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.syscomponent.DOCUMENTS" android:grantUriPermissions="true">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER"/>
+            </intent-filter>
+        </provider>
+        <provider android:name="yw.BM" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.syscomponent.AppInfoProvider">
+            <intent-filter>
+                <action android:name="oppo.intent.action.QUERY_SDCARD_APP_INFO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </provider>
+        <provider android:name="yy.BN" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.syscomponent.empty.PackageChangedProvider">
+            <intent-filter>
+                <action android:name="com.samsung.android.intent.action.DEVICE_SEARCH"/>
+                <action android:name="com.samsung.android.search.intent.ACTION_CONTENT_SEARCH"/>
+            </intent-filter>
+        </provider>
+        <provider android:name="yy.BO" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.syscomponent.YYB_COMMAND">
+            <intent-filter>
+                <action android:name="com.samsung.android.sdk.command.COMMAND_PROVIDER"/>
+            </intent-filter>
+        </provider>
+        <provider android:name="yz.BP" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.MomoSdkSupportProvider" android:syncable="true">
+            <meta-data android:name="@string/contact_name" android:value="true"/>
+        </provider>
+        <provider android:name="yw.BQ" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.syscomponent.ContactsProvider" android:syncable="true">
+            <meta-data android:name="@string/contact_name" android:value="true"/>
+        </provider>
+        <provider android:name="yy.BS" android:permission="com.vivo.permission.VOICE_INTERACT_PROVIDER" android:enabled="true" android:exported="true" android:process=":linker" android:authorities="com.jlmy.jiangxinbox.mm.empty.VivoVoiceDemoProvider">
+            <meta-data android:name="vivo.voice_interact_provider" android:resource="@xml/op_ou"/>
+            <intent-filter>
+                <action android:name="com.vivo.action.voice_interact_provider"/>
+            </intent-filter>
+        </provider>
+        <service android:name="yy.BT" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="com.cleanmaster.action.sdk.CleanService"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <service android:name="yx.BU" android:permission="android.permission.BIND_PRINT_SERVICE" android:enabled="false" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.printservice.PrintService"/>
+            </intent-filter>
+            <meta-data android:name="android.printservice" android:value="" android:resource="@xml/x"/>
+        </service>
+        <service android:name="yx.BV" android:enabled="false" android:exported="true" android:process=":linker">
+            <intent-filter>
+                <action android:name="android.intent.action.TTS_SERVICE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </service>
+        <activity android:theme="@style/Transparent" android:name="clk.MNS" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNT" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNU" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNV" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNW" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNX" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNY" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MNZ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOA" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOB" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOC" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOD" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOE" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOF" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOG" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOH" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOI" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOJ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOK" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOL" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOM" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MON" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOO" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOP" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOQ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOR" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOS" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOT" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOU" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOV" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOW" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOX" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOY" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MOZ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPA" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPB" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPC" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPD" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPE" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPF" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPG" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPH" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPI" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPJ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPK" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPL" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPM" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPN" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPO" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPP" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPQ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPR" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPS" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPT" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPU" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPV" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPW" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPX" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPY" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MPZ" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="clk.MQA" android:exported="true" android:taskAffinity=":surface" android:excludeFromRecents="true" android:launchMode="standard" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Transparent" android:name="ors.MQB"/>
+        <activity android:theme="@style/ActivityTranslucent" android:name="ort.MQC" android:exported="true"/>
+        <activity android:name="orr.MNR"/>
+        <provider android:name="com.bytedance.sdk.openadsdk.multipro.TTMultiProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.TTMultiProvider"/>
+        <provider android:name="com.bytedance.sdk.openadsdk.TTFileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.TTFileProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/anythink_bk_tt_path"/>
+        </provider>
+        <provider android:name="com.qq.e.comm.GDTFileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.gdt.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/anythink_bk_gdt_path"/>
+        </provider>
+        <activity android:name="orx.MQI"/>
+        <activity android:name="orx.MQJ"/>
+        <activity android:name="orv.MQK"/>
+        <activity android:name="orv.MQL"/>
+        <activity android:name="orv.MQM"/>
+        <activity android:name="orv.MQN"/>
+        <activity android:name="com.xian.bc.DDDActivity" android:exported="false">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:name="com.xian.bc.dialog.SplashActivity"/>
+        <activity android:name="com.xian.bc.setting.NotesAboutToolActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.xian.bc.setting.NotesFeedBackActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.xian.bc.setting.NotesPolicyToolsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.xian.bc.setting.NotesSettingToolActivity"/>
+        <meta-data android:name="ScopedStorage" android:value="true"/>
+        <activity android:name="com.clean.scanlibrary.camera.BodyScanDetailsActivity" android:exported="false">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:name="com.clean.scanlibrary.camera.CardScanActivity" android:exported="false">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:name="com.clean.scanlibrary.camera.NewCameraMagnifygActivity"/>
+        <activity android:name="com.clean.scanlibrary.camera.PicShowActivity"/>
+        <activity android:name="com.clean.scanlibrary.img.ImgDetailsActivity"/>
+        <activity android:name="com.clean.scanlibrary.img.SDSourcesActivity"/>
+        <activity android:name="com.clean.scanlibrary.img.VideoDetailsActivity"/>
+        <activity android:name="com.clean.scanlibrary.img.ImageSourceActivity"/>
+        <activity android:name="com.clean.scanlibrary.img.PicStyleActivity"/>
+        <activity android:name="com.clean.scanlibrary.img.PeoplePicActivity"/>
+        <activity android:name="com.clean.scanlibrary.camera.NewMtCameraMaginActivity"/>
+        <activity android:name="com.clean.pic_toolslibrary.CaptureScanActivity" android:exported="false" android:screenOrientation="portrait">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:name="com.clean.pic_toolslibrary.PicToolsSettingActivity" android:exported="false">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:name="com.clean.pic_toolslibrary.PicToolsMainActivity" android:exported="false">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.WaterMarkActivity" android:exported="false">
+            <meta-data android:name="android.app.lib_name" android:value=""/>
+        </activity>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PCCompressActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PICColorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.clean.pic_toolslibrary.PolicyToolsActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.clean.pic_toolslibrary.AboutToolActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.clean.pic_toolslibrary.WelcomeActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureLowPolyActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureTextActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PicturePixelActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureGreyActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureSketchActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.ColorPictureActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureNineActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PicFeedBackActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureHideActivity" android:screenOrientation="portrait"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.pic_toolslibrary.PictureBlurActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.SplashActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.DecimalConvertActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.CalculateActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.WritePadActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.LengthConversionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.RelativesCallCalculatorActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.CompassActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.HuiLvConversionActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.AmountToChineseActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.ChineseToPinyinActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.TextEncryptActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.MobileInfoActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.CurrentTimeActivity" android:screenOrientation="landscape"/>
+        <activity android:name="com.base.toolslibrary.activity.PhotosensitizerActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.DecimalConvertActivity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.RulerActivity"/>
+        <activity android:name="com.base.toolslibrary.activity.Utf8Activity" android:screenOrientation="portrait"/>
+        <activity android:name="com.base.toolslibrary.activity.ScreenActivity"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:name="com.base.toolslibrary.activity.draw.DrawActivity"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:name="com.base.toolslibrary.activity.LedActivity"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:name="com.base.toolslibrary.activity.Led1Activity"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:name="com.base.toolslibrary.activity.Led2Activity"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:name="com.base.toolslibrary.activity.ConversionActivity"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:label="@string/jadx_deobf_0x0000294d" android:name="com.base.toolslibrary.activity.LevelActivity" android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden" android:hardwareAccelerated="true"/>
+        <activity android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar" android:name="com.base.toolslibrary.activity.ProtractorActivity" android:screenOrientation="landscape" android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden" android:hardwareAccelerated="true"/>
+        <activity android:name="com.base.toolslibrary.activity.NormalCalculator"/>
+        <activity android:name="com.base.toolslibrary.activity.AgeCalculator"/>
+        <activity android:name="com.base.toolslibrary.activity.BMICalculator"/>
+        <activity android:name="com.base.toolslibrary.activity.BMIResult"/>
+        <activity android:name="com.clean.smalltoolslibrary.CompassActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.DrawActivity"/>
+        <activity android:name="com.clean.smalltoolslibrary.LevelActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.QRCodeActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.MorseCodeActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.SpecialTextActivity"/>
+        <activity android:name="com.clean.smalltoolslibrary.RulerActivity"/>
+        <activity android:name="com.clean.smalltoolslibrary.ScreenActivity"/>
+        <activity android:name="com.yalantis.ucrop.UCropActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.LedActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.Led1Activity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.Led2Activity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.HistoryActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.ClockActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.MetalDetectionActivity"/>
+        <activity android:theme="@style/Theme.Tools.NoActionBar" android:name="com.clean.smalltoolslibrary.AvatarMakeActivity"/>
+        <activity android:theme="@style/zxing_CaptureTheme" android:name="com.journeyapps.barcodescanner.CaptureActivity" android:clearTaskOnLaunch="true" android:stateNotNeeded="true" android:screenOrientation="sensorLandscape" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <meta-data android:name="com.bumptech.glide.integration.okhttp3.OkHttpGlideModule" android:value="GlideModule"/>
+        <provider android:name="com.just.agentweb.AgentWebFileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.AgentWebFileProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/web_files_paths"/>
+        </provider>
+        <activity android:theme="@style/actionActivity" android:name="com.just.agentweb.ActionActivity" android:exported="false" android:launchMode="standard" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <receiver android:name="com.just.agentweb.RealDownLoader.NotificationBroadcastReceiver"/>
+        <provider android:name="androidx.work.impl.WorkManagerInitializer" android:exported="false" android:multiprocess="true" android:authorities="com.jlmy.jiangxinbox.workmanager-init" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemalarm.SystemAlarmService" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.background.systemjob.SystemJobService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="@bool/enable_system_job_service_default" android:exported="true" android:directBootAware="false"/>
+        <service android:name="androidx.work.impl.foreground.SystemForegroundService" android:enabled="@bool/enable_system_foreground_service_default" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.utils.ForceStopRunnable.BroadcastReceiver" android:enabled="true" android:exported="false" android:directBootAware="false"/>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryChargingProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED"/>
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.BatteryNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BATTERY_OKAY"/>
+                <action android:name="android.intent.action.BATTERY_LOW"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.StorageNotLowProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.DEVICE_STORAGE_LOW"/>
+                <action android:name="android.intent.action.DEVICE_STORAGE_OK"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxy.NetworkStateProxy" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver" android:enabled="false" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver" android:enabled="@bool/enable_system_alarm_service_default" android:exported="false" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP" android:enabled="true" android:exported="true" android:directBootAware="false">
+            <intent-filter>
+                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+            </intent-filter>
+        </receiver>
+        <service android:name="androidx.room.MultiInstanceInvalidationService" android:exported="false" android:directBootAware="true"/>
+        <uses-library android:name="androidx.camera.extensions.impl" android:required="false"/>
+        <service android:name="androidx.camera.core.impl.MetadataHolderService" android:enabled="false" android:exported="false">
+            <meta-data android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER" android:value="androidx.camera.camera2.Camera2Config$DefaultProvider"/>
+        </service>
+        <activity android:theme="@style/ActivityTranslucent" android:name="com.blankj.utilcode.util.UtilsTransActivity" android:multiprocess="true" android:configChanges="screenSize|orientation|keyboardHidden" android:windowSoftInputMode="stateAlwaysHidden"/>
+        <provider android:name="com.blankj.utilcode.util.UtilsFileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.utilcode.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/util_code_provider_paths"/>
+        </provider>
+        <service android:name="com.blankj.utilcode.util.MessengerUtils.ServerService" android:exported="false">
+            <intent-filter>
+                <action android:name="com.jlmy.jiangxinbox.messenger"/>
+            </intent-filter>
+        </service>
+        <provider android:name="androidx.startup.InitializationProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.androidx-startup">
+            <meta-data android:name="androidx.emoji2.text.EmojiCompatInitializer" android:value="androidx.startup"/>
+            <meta-data android:name="androidx.lifecycle.ProcessLifecycleInitializer" android:value="androidx.startup"/>
+        </provider>
+        <provider android:name="com.baidu.mobads.sdk.api.BdFileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.bd.provider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/bd_file_paths"/>
+        </provider>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.baidu.mobads.sdk.api.AppActivity" android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.baidu.mobads.sdk.api.MobRewardVideoActivity" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.baidu.mobads.sdk.api.MobCPUDramaActivity" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.baidu.mobads.sdk.api.BdShellActivity" android:configChanges="smallestScreenSize|screenSize|screenLayout|orientation|keyboardHidden|keyboard"/>
+        <service android:name="com.qq.e.comm.DownloadService" android:exported="false" android:multiprocess="true"/>
+        <activity android:name="com.qq.e.ads.ADActivity" android:multiprocess="true" android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar" android:name="com.qq.e.ads.PortraitADActivity" android:multiprocess="true" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar" android:name="com.qq.e.ads.LandscapeADActivity" android:multiprocess="true" android:screenOrientation="sensorLandscape" android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar" android:name="com.qq.e.ads.RewardvideoPortraitADActivity" android:multiprocess="true" android:configChanges="screenSize|orientation|keyboardHidden|keyboard">
+            <meta-data android:name="android.notch_support" android:value="true"/>
+        </activity>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar" android:name="com.qq.e.ads.RewardvideoLandscapeADActivity" android:multiprocess="true" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden|keyboard">
+            <meta-data android:name="android.notch_support" android:value="true"/>
+        </activity>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" android:name="com.qq.e.ads.DialogActivity" android:multiprocess="true"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar" android:name="com.kwad.sdk.api.proxy.app.AdWebViewActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.KsFullScreenVideoActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.KsFullScreenLandScapeVideoActivity" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.KsRewardVideoActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.KSRewardLandScapeVideoActivity" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.FeedDownloadActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.KsTrendsActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.ProfileHomeActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.ProfileVideoDetailActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.TubeProfileActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.ChannelDetailActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.TubeDetailActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.EpisodeDetailActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/TransparentDialogActivity" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.RequestInstallPermissionActivity" android:exported="false" android:configChanges="screenSize|orientation|keyboardHidden">
+            <intent-filter>
+                <action android:name="intent.action.requestInstallPermission"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity1" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.GoodsPlayBackActivity" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity2" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity3" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity4" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity5" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity6" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity7" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity8" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity9" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivity10" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivitySingleTop1" android:launchMode="singleTop" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivitySingleTop2" android:launchMode="singleTop" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivitySingleInstance1" android:launchMode="singleInstance" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.FragmentActivitySingleInstance2" android:launchMode="singleInstance" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.DeveloperConfigActivity" android:launchMode="singleInstance" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivity" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivitySingleTop1" android:launchMode="singleTop" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivitySingleTop2" android:launchMode="singleTop" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivitySingleTask1" android:launchMode="singleTask" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivitySingleTask2" android:launchMode="singleTask" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivitySingleInstance1" android:launchMode="singleInstance" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.kwad.sdk.api.proxy.app.BaseFragmentActivity.LandscapeFragmentActivitySingleInstance2" android:launchMode="singleInstance" android:screenOrientation="landscape" android:configChanges="screenSize|orientation|keyboardHidden"/>
+        <service android:name="com.kwad.sdk.api.proxy.app.FileDownloadService.SharedMainProcessService"/>
+        <service android:name="com.kwad.sdk.api.proxy.app.FileDownloadService.SeparateProcessService"/>
+        <service android:name="com.kwad.sdk.api.proxy.app.DownloadService" android:exported="false"/>
+        <service android:name="com.kwad.sdk.api.proxy.app.ServiceProxyRemote" android:exported="false" android:process=":kssdk_remote"/>
+        <provider android:name="com.kwad.sdk.api.proxy.app.AdSdkFileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.adFileProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/ksad_file_paths"/>
+        </provider>
+        <meta-data android:name="ZEUS_PLUGIN_PANGLE" android:value="{                 apiVersionCode:5928,                 packageName:com.byted.pangle.m,                 minPluginVersion:5928,                 internalPath:1855372679,                 internalVersionCode:5928             }"/>
+        <meta-data android:name="ZEUS_PLUGIN_com.byted.csj.ext" android:value="{apiVersionCode:999,packageName:com.byted.csj.ext,minPluginVersion:1000,maxPluginVersion:999999999,internalPath:&apos;&apos;,internalVersionCode:-1, appKey:&apos;&apos;,appSecretKey:&apos;&apos;}"/>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity" android:exported="false" android:launchMode="standard" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Portrait_Activity" android:exported="false" android:launchMode="standard" android:screenOrientation="portrait" android:configChanges="screenSize|uiMode|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@android:style/Theme.Translucent" android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Activity_T" android:exported="false" android:launchMode="standard" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_Standard_Landscape_Activity" android:exported="false" android:launchMode="standard" android:screenOrientation="landscape" android:configChanges="screenSize|uiMode|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@android:style/Theme.NoTitleBar" android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_Activity" android:exported="false" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:theme="@android:style/Theme.Translucent" android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_SingleTask_Activity_T" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.bytedance.sdk.openadsdk.stub.activity.Stub_SingleTask_Activity" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <provider android:name="com.bytedance.sdk.openadsdk.stub.server.DownloaderServerManager" android:exported="false" android:process=":downloader" android:authorities="com.jlmy.jiangxinbox.pangle.servermanager.downloader.com.bytedance.sdk.openadsdk.adhost"/>
+        <provider android:name="com.bytedance.sdk.openadsdk.stub.server.MainServerManager" android:exported="false" android:authorities="com.jlmy.jiangxinbox.pangle.servermanager.main"/>
+        <provider android:name="com.bytedance.pangle.provider.MainProcessProviderProxy" android:exported="false" android:authorities="com.jlmy.jiangxinbox.pangle.provider.proxy.main"/>
+        <provider android:name="com.bytedance.pangle.FileProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.pangle.fileprovider" android:grantUriPermissions="true"/>
+        <activity android:name="com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity" android:exported="false"/>
+        <activity android:name="com.ss.android.downloadlib.addownload.compliance.AppDetailInfoActivity" android:exported="false"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.ss.android.downloadlib.activity.TTDelegateActivity" android:exported="false" android:launchMode="singleTask"/>
+        <activity android:theme="@android:style/Theme.Translucent.NoTitleBar" android:name="com.ss.android.downloadlib.activity.JumpKllkActivity" android:exported="false" android:launchMode="singleTask"/>
+        <receiver android:name="com.ss.android.downloadlib.core.download.DownloadReceiver" android:exported="false"/>
+        <service android:name="com.ss.android.socialbase.appdownloader.DownloadHandlerService" android:exported="false" android:stopWithTask="true"/>
+        <activity android:theme="@android:style/Theme.Dialog" android:name="com.ss.android.socialbase.appdownloader.view.DownloadTaskDeleteActivity" android:exported="false" android:launchMode="singleTask"/>
+        <activity android:theme="@android:style/Theme.Dialog" android:name="com.ss.android.socialbase.appdownloader.view.JumpUnknownSourceActivity" android:exported="false" android:launchMode="singleTask"/>
+        <service android:name="com.ss.android.socialbase.appdownloader.RetryJobSchedulerService" android:permission="android.permission.BIND_JOB_SERVICE" android:enabled="true" android:exported="false" android:stopWithTask="true"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.IndependentProcessDownloadService" android:exported="false" android:process=":downloader">
+            <intent-filter>
+                <action android:name="com.ss.android.socialbase.downloader.remote"/>
+            </intent-filter>
+        </service>
+        <service android:name="com.ss.android.socialbase.downloader.notification.DownloadNotificationService" android:exported="false" android:stopWithTask="true"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.DownloadService" android:exported="false" android:stopWithTask="true"/>
+        <service android:name="com.ss.android.socialbase.downloader.impls.DownloadHandleService" android:exported="false" android:stopWithTask="true"/>
+        <service android:name="com.ss.android.socialbase.downloader.downloader.SqlDownloadCacheService" android:exported="false" android:stopWithTask="true"/>
+        <meta-data android:name="ZEUS_PLUGIN_LIVE" android:value="{                 apiVersionCode:2114,                 packageName:com.byted.live.lite,                 minPluginVersion:211400,                 maxPluginVersion:999999,                 isSupportLibIsolate:true             }"/>
+        <meta-data android:name="LIVE_API_VERSION_CODE" android:value="2114"/>
+        <activity android:name="com.bytedance.android.openliveplugin.stub.activity.DouyinAuthorizeActivityProxy" android:exported="true"/>
+        <activity android:name="com.bytedance.android.openliveplugin.stub.activity.DouyinAuthorizeActivityLiveProcessProxy" android:exported="true" android:process=":bytelive"/>
+        <provider android:name="com.bytedance.android.openliveplugin.process.server.LiveServerManager" android:exported="false" android:process=":bytelive" android:authorities="com.jlmy.jiangxinbox.bytedance.android.openliveplugin.process.server.LiveServerManager"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_standard" android:exported="false" android:process=":bytelive" android:launchMode="standard" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTask4" android:exported="false" android:process=":bytelive" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTop3" android:exported="false" android:process=":bytelive" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTop2" android:exported="false" android:process=":bytelive" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTop5" android:exported="false" android:process=":bytelive" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_standard" android:exported="false" android:launchMode="standard" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTop4" android:exported="false" android:process=":bytelive" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_standard" android:exported="false" android:process=":bytelive" android:launchMode="standard" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTop1" android:exported="false" android:process=":bytelive" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTask1" android:exported="false" android:process=":bytelive" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTop6" android:exported="false" android:process=":bytelive" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTask2" android:exported="false" android:process=":bytelive" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleTask3" android:exported="false" android:process=":bytelive" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTask1" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTask2" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTask3" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTask4" android:exported="false" android:launchMode="singleTask" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_standard" android:exported="false" android:launchMode="standard" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTop1" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTop2" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleInstance1" android:exported="false" android:launchMode="singleInstance" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTop5" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTop6" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTop3" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_main_singleTop4" android:exported="false" android:launchMode="singleTop" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <activity android:name="com.byted.live.lite.Activity_bytelive_singleInstance1" android:exported="false" android:process=":bytelive" android:launchMode="singleInstance" android:configChanges="screenSize|orientation|navigation|keyboardHidden" android:windowSoftInputMode="adjustResize|stateHidden"/>
+        <provider android:name="com.byted.live.lite.ServerManager_bytelive" android:exported="false" android:process=":bytelive" android:authorities="com.jlmy.jiangxinbox.pangle.servermanager.bytelive.com.byted.live.lite"/>
+        <provider android:name="com.byted.live.lite.ServerManager_push" android:exported="false" android:process=":push" android:authorities="com.jlmy.jiangxinbox.pangle.servermanager.push.com.byted.live.lite"/>
+        <activity android:name="com.ymnet.update.utils.DialogActivity"/>
+        <activity android:theme="@style/OctopusDialogStyle" android:name="com.octopus.ad.AdActivity" android:configChanges="smallestScreenSize|screenSize|uiMode|screenLayout|orientation|keyboardHidden|keyboard" android:hardwareAccelerated="true"/>
+        <service android:name="com.octopus.ad.DownloadService" android:exported="false"/>
+        <provider android:name="com.octopus.ad.OctopusProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.fileprovider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/octopus_file_path"/>
+        </provider>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.xwuad.sdk.api.view.RewardAdActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <activity android:theme="@style/Theme.AppCompat.NoActionBar" android:name="com.xwuad.sdk.api.view.BrowseActivity" android:exported="false" android:screenOrientation="portrait" android:configChanges="screenSize|orientation|keyboardHidden|keyboard"/>
+        <provider android:name="com.xwuad.sdk.function.download.DownLoadProvider" android:exported="false" android:authorities="com.jlmy.jiangxinbox.FileProvider" android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS" android:resource="@xml/pij_path"/>
+        </provider>
+        <provider android:name="com.noober.background.BackgroundContentProvider" android:exported="false" android:multiprocess="true" android:authorities="com.jlmy.jiangxinbox.backgroundLibrary"/>
+    </application>
+</manifest>

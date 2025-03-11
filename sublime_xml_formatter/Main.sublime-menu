@@ -1,0 +1,20 @@
+[
+    {
+        "id": "selection",
+        "caption": "Selection",
+        "children":
+        [
+            {
+                "id": "android",
+                "caption": "Android Formatter",
+                "children":
+                [
+                    {
+                        "caption": "Format XML",
+                        "command": "android_xml_formatter",
+                    }
+                ]
+            }
+        ]
+    }
+]
