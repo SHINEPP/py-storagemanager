@@ -7,9 +7,15 @@ master_branches = ('master', 'develop')
 app_branches = ('release',)
 
 
+class Node:
+    def __init__(self, name: str, commit: git.Commit):
+        self.name = name
+        self.commit = commit
+
+
 class ReleaseNode:
 
-    def __init__(self, app: git.Head, master: git.Head, base: git.Commit):
+    def __init__(self, app: Node, master: Node, base: git.Commit):
         self.app = app
         self.app_commited_date = app.commit.committed_date
         self.app_commited_datetime = app.commit.committed_datetime.strftime('%Y-%m-%d %H:%M:%S')
@@ -22,42 +28,43 @@ class ReleaseNode:
 class BusinessGit:
     def __init__(self, git_dir):
         self.repo = git.Repo(git_dir)
-        self.master_heads = []
-        self.app_heads = []
+        self.master_nodes = []
+        self.app_nodes = []
         self.master_max_len = 0
 
         all_heads = {}
         for remote in self.repo.remotes:
-            for head in remote.repo.heads:
-                all_heads[head.commit.hexsha] = head
+            for ref in remote.refs:
+                all_heads[ref.remote_head] = ref.commit
+
         for head in self.repo.heads:
-            all_heads[head.commit.hexsha] = head
+            all_heads[head.name] = head.commit
 
-        self.heads = [i[1] for i in all_heads.items()]
+        self.nodes = [Node(v[0], v[1]) for v in all_heads.items()]
 
-        for head in self.heads:
+        for node in self.nodes:
             for master_branch in master_branches:
-                if head.name.startswith(master_branch):
-                    self.master_heads.append(head)
-                    size = len(head.name)
+                if node.name.startswith(master_branch):
+                    self.master_nodes.append(node)
+                    size = len(node.name)
                     if size > self.master_max_len:
                         self.master_max_len = size
                     break
             for app_branch in app_branches:
-                if head.name.startswith(app_branch):
-                    self.app_heads.append(head)
+                if node.name.startswith(app_branch):
+                    self.app_nodes.append(node)
                     break
 
     def start(self):
         nodes = []
-        app_head_count = len(self.app_heads)
+        app_head_count = len(self.app_nodes)
         for i in range(app_head_count):
-            app_head = self.app_heads[i]
-            app_head_text = f'\r[{i + 1}/{app_head_count}] {app_head.name}'
+            app_node = self.app_nodes[i]
+            app_head_text = f'\r[{i + 1}/{app_head_count}] {app_node.name}'
             print(app_head_text + ' ' * 16, end='')
-            master_head, base_commit, features = self._parent_master(app_head.commit.hexsha)
-            if master_head and base_commit:
-                nodes.append(ReleaseNode(app_head, master_head, base_commit))
+            master_node, base_commit, features = self._parent_master(app_node.commit.hexsha)
+            if master_node and base_commit:
+                nodes.append(ReleaseNode(app_node, master_node, base_commit))
 
         print('\r' + ' ' * 40)
 
@@ -106,7 +113,7 @@ class BusinessGit:
         min_distance2 = None
         min_head = None
         base_commit = None
-        for base_head in self.master_heads:
+        for base_head in self.master_nodes:
             commits = self.repo.merge_base(commit, base_head.commit)
             if not commits or len(commits) == 0:
                 continue
