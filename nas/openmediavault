@@ -1,0 +1,20 @@
+
+docker run --name OpenMediaVault -d -ti -h openmediavault.example.test -v /Volumes/WDDATA4T/docker/openmediavault/data:/data:Z -p 3080:80 -p 30443:443 -p 3021:21 ikogan/openmediavault
+
+admin
+openmediavault
+
+-----------------------------------------
+
+搭建 MinIO 服务器
+
+docker run -p 9000:9000 -p 9090:9090 \
+  -e "MINIO_ROOT_USER=admin" \
+  -e "MINIO_ROOT_PASSWORD=admin123" \
+  quay.io/minio/minio server /data --console-address ":9090"
+
+访问 MinIO 控制台：http://localhost:9090（默认账号：admin，密码：admin123）
+
+-----------------------------------------
+
+brew install minio/stable/minio

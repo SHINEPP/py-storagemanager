@@ -14,9 +14,9 @@ from PIL import Image
 
 if __name__ == '__main__':
     # 加载图片
-    image = Image.open('data/1141720496954.jpg')
+    image = Image.open('data/xlb.jpg')
     # 创建一个Rembg对象
     rembg_obj = rembg.remove(image)
     # 显示去除背景后的图片
     # rembg_obj.show()
-    rembg_obj.save('data/1141720496954_out.png')
+    rembg_obj.save('data/xlb_out.png')
