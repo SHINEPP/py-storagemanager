@@ -1,3 +1,4 @@
+import os
 import subprocess
 import sys
 
@@ -49,11 +50,13 @@ def main_find_account():
 
 
 def pull_package_apks(package_name: str):
+    dst_path = '/Users/zhouzhenliang/Desktop/apk/HeroStory'
+    os.makedirs(dst_path, exist_ok=True)
     paths = pm_path_package(package_name)
     for path in paths:
         print(path)
-        pull_file(path, '/Users/zhouzhenliang/Desktop/apk/fast_cleaner')
+        pull_file(path, dst_path)
 
 
 if __name__ == '__main__':
-    pull_package_apks('fc.fast.cleaner')
+    pull_package_apks('com.herostory.ststutios')
