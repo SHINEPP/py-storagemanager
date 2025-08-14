@@ -50,6 +50,8 @@ class BusinessGit:
         min_distance2 = None
         min_head = None
         for master_head in self.master_heads:
+            if commit == master_head.name:
+                continue
             commits = self.repo.merge_base(commit, master_head.commit)
             if not commits or len(commits) == 0:
                 continue

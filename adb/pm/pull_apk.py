@@ -50,7 +50,6 @@ def main_find_account():
 
 
 def pull_package_apks(package_name: str):
-    dst_path = '/Users/zhouzhenliang/Desktop/apk/HeroStory'
     os.makedirs(dst_path, exist_ok=True)
     paths = pm_path_package(package_name)
     for path in paths:
@@ -59,4 +58,5 @@ def pull_package_apks(package_name: str):
 
 
 if __name__ == '__main__':
-    pull_package_apks('com.herostory.ststutios')
+    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk/ShieldClean'
+    pull_package_apks('com.shield.roc.cleaner')

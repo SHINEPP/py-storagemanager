@@ -55,6 +55,6 @@ def get_report(file_id: str):
 
 
 if __name__ == '__main__':
-    path = '/Users/zhouzhenliang/source/shine/lib-appsecurity/libmain/build/intermediates/library_and_local_jars_jni/release/copyReleaseJniLibsProjectAndLocalJars/jni/arm64-v8a/libsecurity.so'
+    path = '/Users/zhouzhenliang/Desktop/temp-temp/maven-business/com/security/core-main-sqrc/15.8.2/core-main-sqrc-15.8.2/resources/assets/libsdecoanascdcre'
     upload_file(path)
     # get_report('1d1ad281426db09c069a46e1cc3c843fd17db0dee35a367e5e030a791ef8e71b')
