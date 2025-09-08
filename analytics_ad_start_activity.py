@@ -23,10 +23,9 @@ ad_activity_names = [
 
 if __name__ == '__main__':
 
-    app_name = 'device_file_radar'
-    app_version = 10
-    os_version = '36'
-    dt = datetime(2025, 8, 3, 0, 0, 0)
+    app_name = 'mobile_file_boss'
+    app_version = 3
+    dt = datetime(2025, 8, 18, 0, 0, 0)
 
     tz = pytz.timezone('Asia/Shanghai')
     dt_tz = tz.localize(dt)
@@ -39,7 +38,7 @@ SELECT event_date_utc, json_extract(event_parameters, '$.component') as componen
 FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name = 'business_startactivity' 
 AND json_extract(event_parameters, '$.app_version')  = '{app_version}'
-AND event_time_epoch_hour >= {start_hours} AND event_time_epoch_hour < {end_hours} AND json_extract(event_parameters, '$.os_version') = '{os_version}'
+AND event_time_epoch_hour >= {start_hours} AND event_time_epoch_hour < {end_hours}
 GROUP BY event_date_utc, json_extract(event_parameters, '$.component')
 ORDER BY event_date_utc DESC
 LIMIT 0, 10000
@@ -50,7 +49,7 @@ SELECT event_date_utc, json_extract(event_parameters, '$.component') as componen
 FROM `macrophage_data_{app_name}`.raw_data
 WHERE event_name = 'business_activityviewed' 
 AND json_extract(event_parameters, '$.app_version')  = '{app_version}'
-AND event_time_epoch_hour >= {start_hours} AND event_time_epoch_hour < {end_hours} AND json_extract(event_parameters, '$.os_version') = '{os_version}'
+AND event_time_epoch_hour >= {start_hours} AND event_time_epoch_hour < {end_hours}
 GROUP BY event_date_utc, json_extract(event_parameters, '$.component')
 ORDER BY event_date_utc DESC
 LIMIT 0, 10000
@@ -63,7 +62,7 @@ LIMIT 0, 10000
         rows2 = cursor.fetchall()
 
         date_text = datetime.now().strftime('%m%d%H%M%S')
-        out_path = f'/Users/zhouzhenliang/Desktop/temp-analytics/{app_name}_ad_start_activity_vc{app_version}_{os_version}_{date_text}.csv'
+        out_path = f'/Users/zhouzhenliang/Desktop/Desktop/temp-analytics/{app_name}_ad_start_activity_vc{app_version}_{date_text}.csv'
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
