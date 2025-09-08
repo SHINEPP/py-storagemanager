@@ -9,13 +9,41 @@ if __name__ == '__main__':
     app_version = '3'
     start_date = '2025-09-07'
     end_data = '2025-09-07'
+    os_version = '35'
+
+    events = [
+        'business_dowork',
+        'business_startloadactivity',
+        'business_loadactivity_viewed',
+        'business_interstitialad_startload',
+        'business_adactivity_viewed',
+        'business_interstitialad_loaded',
+        'business_showinterstitialad',
+        'business_interstitialad_viewed',
+        'business_interstitialad_revenue',
+        'business_dowork_limit',
+        'business_interstitialad_loadtimeout',
+        'business_interstitialad_loadfailed',
+        'business_interstitialad_loadfailed_finish',
+        'business_interstitialad_displayfailed',
+        'business_startactivity',
+        'business_activityviewed',
+        'business_interstitialad_close']
+
+    events_group = ','.join(map(lambda a: f"'{a}'", events))
+
+    sql_where = []
+    sql_where.append(f"event_name in ({events_group})")
+    sql_where.append(f"json_extract(event_parameters, '$.app_version')  = '{app_version}'")
+    sql_where.append(f"event_date_utc >= '{start_date}' AND event_date_utc <= '{end_data}'")
+    if len(os_version) > 0:
+        sql_where.append(f"json_extract(event_parameters, '$.os_version')  = '{os_version}'")
+    where = ' AND '.join(sql_where)
 
     sql = f'''
 SELECT event_date_utc, event_name, count(distinct user_id) as user_count, count(*) as event_count
 FROM `macrophage_data_{app_name}`.raw_data
-WHERE event_name in ('business_dowork', 'business_startloadactivity', 'business_loadactivity_viewed', 'business_interstitialad_startload', 'business_adactivity_viewed','business_interstitialad_loaded', 'business_showinterstitialad', 'business_interstitialad_viewed', 'business_interstitialad_revenue', 'business_dowork_limit', 'business_interstitialad_loadtimeout', 'business_interstitialad_loadfailed', 'business_interstitialad_loadfailed_finish', 'business_interstitialad_displayfailed', 'business_startactivity', 'business_activityviewed', 'business_interstitialad_close') 
-AND json_extract(event_parameters, '$.app_version')  = '{app_version}'
-AND event_date_utc >= '{start_date}' AND event_date_utc <= '{end_data}'
+WHERE {where}
 GROUP BY event_date_utc, event_name
 ORDER BY event_date_utc DESC
 LIMIT 0, 2000
