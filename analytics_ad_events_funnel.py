@@ -5,30 +5,31 @@ from analytics import open_analytics
 
 if __name__ == '__main__':
 
-    app_name = 'file_manager_center'
-    app_version = '3'
-    start_date = '2025-09-07'
-    end_data = '2025-09-07'
-    os_version = '35'
+    app_name = 'file_manager_champ'
+    app_version = '4'
+    start_date = '2025-09-14'
+    end_data = '2025-09-14'
+    os_version = ''
 
     events = [
+        'business_startworker',
         'business_dowork',
-        'business_startloadactivity',
-        'business_loadactivity_viewed',
-        'business_interstitialad_startload',
-        'business_adactivity_viewed',
+        'business_dowork_limit',
+        'business_hostactivity_viewed',
+        'business_hostactivity_viewed_loadorshow',
+        'business_hostactivity_viewed_justshow',
+        'business_hostactivity_postresume_loadorshow',
+        'business_hostactivity_postresume_justshow',
+        'business_interstitialad_loadfailed',
         'business_interstitialad_loaded',
-        'business_showinterstitialad',
+        'business_interstitialad_showad',
         'business_interstitialad_viewed',
         'business_interstitialad_revenue',
-        'business_dowork_limit',
-        'business_interstitialad_loadtimeout',
         'business_interstitialad_loadfailed',
-        'business_interstitialad_loadfailed_finish',
-        'business_interstitialad_displayfailed',
+        'business_interstitialad_clicked',
+        'business_interstitialad_close',
         'business_startactivity',
-        'business_activityviewed',
-        'business_interstitialad_close']
+        'business_activityviewed']
 
     events_group = ','.join(map(lambda a: f"'{a}'", events))
 

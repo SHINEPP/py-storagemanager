@@ -58,6 +58,6 @@ def pull_package_apks(package_name: str):
 
 
 if __name__ == '__main__':
-    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk/PDFViewerForAndroid'
-    pull_package_apks('com.pdfviewer.forandroid')
+    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk/TTTTTTT'
+    pull_package_apks('com.wheresmyphone.eltools')
 
