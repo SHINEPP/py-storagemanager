@@ -88,6 +88,7 @@ def run():
             try:
                 print(f'\rCheck out: {progress()} fetch {path}', end='')
                 repo = git.Repo(local_git)
+                repo.remote().set_url(repository_url)
                 repo.remote().pull()
                 print(f'\rCheck out: {progress()} fetch {path} success, {duration(stime)}')
                 f_success_count += 1

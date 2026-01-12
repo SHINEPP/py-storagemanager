@@ -23,9 +23,9 @@ ad_activity_names = [
 
 if __name__ == '__main__':
 
-    app_name = 'mobile_file_boss'
-    app_version = 3
-    dt = datetime(2025, 8, 18, 0, 0, 0)
+    app_name = 'file_manager_champ'
+    app_version = 4
+    dt = datetime(2025, 9, 14, 0, 0, 0)
 
     tz = pytz.timezone('Asia/Shanghai')
     dt_tz = tz.localize(dt)

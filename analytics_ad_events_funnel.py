@@ -5,10 +5,10 @@ from analytics import open_analytics
 
 if __name__ == '__main__':
 
-    app_name = 'file_manager_champ'
-    app_version = '4'
-    start_date = '2025-09-14'
-    end_data = '2025-09-14'
+    app_name = 'all_files_manager'
+    app_version = '5'
+    start_date = '2025-09-25'
+    end_data = '2025-09-25'
     os_version = ''
 
     events = [
@@ -28,6 +28,7 @@ if __name__ == '__main__':
         'business_interstitialad_loadfailed',
         'business_interstitialad_clicked',
         'business_interstitialad_close',
+        'business_interstitialad_displayfailed',
         'business_startactivity',
         'business_activityviewed']
 
@@ -59,7 +60,7 @@ LIMIT 0, 2000
         csv_file = open(out_path, 'w')
         csv_writer = csv.writer(csv_file)
 
-        headers = ['event_date_utc', 'component', 'user_count', 'event_count', 'per_user_event_count']
+        headers = ['event_date_utc', 'event', 'user_count', 'event_count', 'per_user_event_count']
         csv_writer.writerow(headers)
 
         for row in rows:
