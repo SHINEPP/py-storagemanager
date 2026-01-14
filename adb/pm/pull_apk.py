@@ -58,6 +58,6 @@ def pull_package_apks(package_name: str):
 
 
 if __name__ == '__main__':
-    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk-20251224/NuvClear'
-    pull_package_apks('com.datadust.nuv.clear')
+    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk-20251224/CleanMagician'
+    pull_package_apks('com.admidpedia.cleanmagician')
 
