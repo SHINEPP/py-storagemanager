@@ -5,10 +5,10 @@ from analytics import open_analytics
 
 if __name__ == '__main__':
 
-    app_name = 'all_files_manager'
-    app_version = '5'
-    start_date = '2025-09-25'
-    end_data = '2025-09-25'
+    app_name = 'device_file_engine'
+    app_version = '4'
+    start_date = '2026-01-20'
+    end_data = '2026-01-26'
     os_version = ''
 
     events = [
