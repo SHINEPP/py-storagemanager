@@ -3,27 +3,27 @@ import pymysql
 
 class AnalyticsConnection:
     def __init__(self):
-        self.conn: pymysql.Connection
-        self.cursor: pymysql.Connection.cursor
+        self._conn: pymysql.Connection
+        self._cursor: pymysql.Connection.cursor
 
     def __enter__(self):
-        self.conn = pymysql.connect(
+        self._conn = pymysql.connect(
             host='127.0.0.1',
             port=3307,
             user='root',
             password='2Xga9BKGwk41Fd',
             database=''
         )
-        self.cursor = self.conn.cursor()
-        return self.cursor
+        self._cursor = self._conn.cursor()
+        return self._cursor
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         if exc_type is None:
-            self.conn.commit()
+            self._conn.commit()
         else:
-            self.conn.rollback()
-        self.cursor.close()
-        self.conn.close()
+            self._conn.rollback()
+        self._cursor.close()
+        self._conn.close()
 
 
 def open_analytics() -> AnalyticsConnection:
