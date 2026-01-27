@@ -6,9 +6,9 @@ from analytics import open_analytics
 if __name__ == '__main__':
 
     app_name = 'device_file_engine'
-    app_version = '4'
-    start_date = '2026-01-20'
-    end_data = '2026-01-26'
+    app_version = '5'
+    start_date = '2026-01-26'
+    end_data = '2026-01-27'
     os_version = ''
 
     events = [
