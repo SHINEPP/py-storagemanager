@@ -6,6 +6,8 @@ import time
 import git
 import requests
 
+from gitsync.base import source_dir
+
 
 def fetch_projects():
     query = '''
@@ -53,7 +55,7 @@ def fetch_projects():
 
 
 def run():
-    gitlab_root = '/Volumes/WDDATA4T/git/gitlab-ark'
+    gitlab_root = source_dir + 'gitlab-ark'
     projects = fetch_projects()
 
     count = len(projects)
@@ -69,6 +71,9 @@ def run():
     f_success_count = 0
     f_fail_count = 0
     index = -1
+
+    if os.path.exists(gitlab_root):
+        os.makedirs(gitlab_root)
 
     def progress():
         return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'

@@ -6,6 +6,8 @@ import time
 import git
 import requests
 
+from gitsync.base import source_dir
+
 
 def fetch_repositories():
     with open('bitbucket_access.json', 'r') as file:
@@ -35,7 +37,7 @@ def fetch_repositories():
 
 
 def run():
-    github_root = '/Volumes/WDDATA4T/git/bitbucket'
+    github_root = source_dir + 'bitbucket'
     repositories = fetch_repositories()
     count = len(repositories)
     print(f'Total count: {count}')
@@ -45,6 +47,9 @@ def run():
     f_success_count = 0
     f_fail_count = 0
     index = -1
+
+    if os.path.exists(github_root):
+        os.makedirs(github_root)
 
     def progress():
         return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'

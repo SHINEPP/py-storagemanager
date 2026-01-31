@@ -1,5 +1,9 @@
 import pymysql
 
+'''
+ssh -NL 3307:amv-rj9c24ap86lo3rfb800000116.ads.aliyuncs.com:3306 root@198.11.183.103
+'''
+
 
 class AnalyticsConnection:
     def __init__(self):
