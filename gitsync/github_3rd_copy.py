@@ -29,7 +29,7 @@ def sync_3rd_github():
         url = repo.remote().url
         print(f'index: {index}, path: {proj_name}, url: {url}')
 
-        match = re.search(r'[:/](.+?)/([^/]+).git$', url)
+        match = re.search(r'[:/](.+?)/([^/]+).(.git)?$', url)
         group = match.group(1).split('/')[-1]
         project = match.group(2)
 
