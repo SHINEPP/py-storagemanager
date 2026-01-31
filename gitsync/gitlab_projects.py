@@ -72,9 +72,6 @@ def run():
     f_fail_count = 0
     index = -1
 
-    if os.path.exists(gitlab_root):
-        os.makedirs(gitlab_root)
-
     def progress():
         return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'
 
@@ -94,7 +91,7 @@ def run():
                 print(f'\rCheck out: {progress()} fetch {path}', end='')
                 repo = git.Repo(local_git)
                 # repo.remote().set_url(repository_url)
-                repo.remote().pull()
+                repo.remote().fetch()
                 print(f'\rCheck out: {progress()} fetch {path} success, {duration(stime)}')
                 f_success_count += 1
             except Exception as e:

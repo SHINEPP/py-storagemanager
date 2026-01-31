@@ -55,9 +55,6 @@ def run():
     f_fail_count = 0
     index = -1
 
-    if os.path.exists(github_root):
-        os.makedirs(github_root)
-
     def progress():
         return f'{round(100 * (index + 1) / count)}% ({index + 1}/{count})'
 
@@ -80,7 +77,7 @@ def run():
                 msg = f'\rCheck out: {progress()} fetch {path}'
                 print(msg, end='')
                 repo = git.Repo(local_git)
-                repo.remote().pull(progress=Progress(msg))
+                repo.remote().fetch(progress=Progress(msg))
                 print(f'\rCheck out: {progress()} fetch {path} success, {duration(stime)}')
                 f_success_count += 1
             except Exception as e:
