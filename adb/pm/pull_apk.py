@@ -58,6 +58,6 @@ def pull_package_apks(package_name: str):
 
 
 if __name__ == '__main__':
-    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk-20251224/Clean_Simple'
-    pull_package_apks('com.baleno.cleansimple')
+    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk-20251224/Surfboard'
+    pull_package_apks('com.getsurfboard')
 
