@@ -54,7 +54,10 @@ def get_report(file_id: str):
     print(response.text)
 
 
-if __name__ == '__main__':
-    path = '/Users/zhouzhenliang/Downloads/fix/app-release-1.0.7-7_1202162453.apk'
+def _main():
+    path = '/Users/zhouzhenliang/Downloads/app-release_0226110827.apk'
     upload_file(path)
-    # get_report('1d1ad281426db09c069a46e1cc3c843fd17db0dee35a367e5e030a791ef8e71b')
+
+
+if __name__ == '__main__':
+    _main()
