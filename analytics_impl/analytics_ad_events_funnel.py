@@ -60,12 +60,18 @@ def business_events(app_name: str, app_version: str, start_date: str, end_date: 
     sql_group.append('event_name')
     join_groups = ','.join(sql_group)
 
+    sql_order = []
+    sql_order.append('event_date_utc')
+    if security_path:
+        sql_order.append('security_patch')
+    join_orders = ','.join(sql_order)
+
     sql = textwrap.dedent(f'''
     SELECT {join_selects}
     FROM `macrophage_data_{app_name}`.raw_data
     WHERE {where}
     GROUP BY {join_groups}
-    ORDER BY event_date_utc DESC
+    ORDER BY {join_orders} DESC
     LIMIT 0, 5000
     ''').strip() + ';'
 
