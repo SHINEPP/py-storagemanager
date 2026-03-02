@@ -1,12 +1,20 @@
 import csv
 import textwrap
-from datetime import datetime
+from datetime import datetime, timezone
+
+import pytz
 
 from analytics import open_analytics
 
 
-def business_events(app_name: str, app_version: str, start_date: str, end_date: str, output: str,
-                    security_path: bool = False, zone: int = 0):
+def business_events(app_name: str, app_version: str,
+                    start_date: datetime, end_date: datetime,
+                    output: str,
+                    security_path: bool = False,
+                    zone: int = 0):
+    start_date = start_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+    end_date = end_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+
     events = [
         'business_startworker',
         'business_dowork',
@@ -59,7 +67,7 @@ def business_events(app_name: str, app_version: str, start_date: str, end_date: 
     sql_where = []
     sql_where.append(f"event_name in ({join_events})")
     sql_where.append(f"json_extract(event_parameters,'$.app_version')  = '{app_version}'")
-    sql_where.append(f"{event_date} >= '{start_date}' AND {event_date} <= '{end_date}'")
+    sql_where.append(f"event_timestamp >= '{start_date}' AND event_timestamp < '{end_date}'")
     where = ' AND '.join(sql_where)
 
     # group
@@ -105,13 +113,17 @@ def business_events(app_name: str, app_version: str, start_date: str, end_date: 
 def main():
     app_name = 'chief_file_officer'
     app_version = '5'
-    start_date = '2026-03-01'
-    end_data = '2026-03-01'
+    start_day = '2026-03-01'
+    end_day = '2026-03-02'
     security_path = True
     zone = 8
 
     date_text = datetime.now().strftime('%m%d%H%M%S')
     output = f'/Users/zhouzhenliang/Desktop/Desktop/temp-analytics/{app_name}_events_funnel_{app_version}_{date_text}.csv'
+
+    tz_cn = pytz.timezone('Asia/Shanghai')
+    start_date = tz_cn.localize(datetime.strptime(start_day, '%Y-%m-%d'))
+    end_data = tz_cn.localize(datetime.strptime(end_day, '%Y-%m-%d'))
 
     business_events(app_name, app_version, start_date, end_data, output, security_path=security_path, zone=zone)
 
