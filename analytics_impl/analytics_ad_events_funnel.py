@@ -1,4 +1,5 @@
 import csv
+import os.path
 import textwrap
 from datetime import datetime, timezone
 
@@ -115,11 +116,12 @@ def main():
     app_version = '5'
     start_day = '2026-03-01'
     end_day = '2026-03-02'
-    security_path = True
+    security_path = False
     zone = 8
+    output_dir = 'Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
 
     date_text = datetime.now().strftime('%m%d%H%M%S')
-    output = f'/Users/zhouzhenliang/Desktop/Desktop/temp-analytics/{app_name}_events_funnel_{app_version}_{date_text}.csv'
+    output = os.path.join(output_dir, f'{app_name}_events_funnel_{app_version}_{date_text}.csv')
 
     tz_cn = pytz.timezone('Asia/Shanghai')
     start_date = tz_cn.localize(datetime.strptime(start_day, '%Y-%m-%d'))
