@@ -18,19 +18,19 @@ def business_events(csv_path):
     csv_file = open(output, 'w')
     csv_writer = csv.writer(csv_file)
 
-    csv_writer.writerow(['date_utc', 'security_patch'] + events)
+    csv_writer.writerow(['date', 'security_patch'] + events)
 
     df = pd.read_csv(csv_path)
     df_unique = df.drop_duplicates(subset=df.columns[:2])
 
     for row in df_unique.itertuples(index=False):
-        date_utc = row[0]
+        date = row[0]
         patch = row[1]
-        print(date_utc, patch)
+        print(date, patch)
 
         event_count_values = []
         for event in events:
-            result = df[(df["event_date_utc"] == date_utc) &
+            result = df[(df["event_date"] == date) &
                         (df["security_patch"] == patch) &
                         (df["event_name"] == event)]
             count = 0
@@ -40,14 +40,14 @@ def business_events(csv_path):
             print(event, count)
             event_count_values.append(count)
 
-        csv_writer.writerow([date_utc, patch] + event_count_values)
+        csv_writer.writerow([date, patch] + event_count_values)
         print('----------------------------------')
 
     csv_file.close()
 
 
 def main():
-    path = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics/chief_file_officer_events_funnel_5_0228203625.csv'
+    path = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics/chief_file_officer_events_funnel_5_0302153548.csv'
     business_events(path)
 
 

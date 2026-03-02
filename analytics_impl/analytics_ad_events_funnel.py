@@ -44,11 +44,11 @@ def business_events(app_name: str, app_version: str,
     sql_select = []
     csv_header = []
     if zone == 0:
-        event_date = 'event_date_utc'
+        event_date = 'event_date'
         sql_select.append(event_date)
         csv_header.append(event_date)
     else:
-        event_date = f'event_date_{zone}'
+        event_date = 'event_date'
         zone_str = '+' + str(zone).zfill(2) + ':00'
         sql_select.append(f"DATE(CONVERT_TZ(event_timestamp, '+00:00', '{zone_str}')) AS {event_date}")
         csv_header.append(event_date)
@@ -116,9 +116,9 @@ def main():
     app_version = '5'
     start_day = '2026-03-01'
     end_day = '2026-03-02'
-    security_path = False
+    security_path = True
     zone = 8
-    output_dir = 'Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
+    output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
 
     date_text = datetime.now().strftime('%m%d%H%M%S')
     output = os.path.join(output_dir, f'{app_name}_events_funnel_{app_version}_{date_text}.csv')
