@@ -1,6 +1,8 @@
 import csv
 from datetime import datetime
+
 import pytz
+
 from analytics import open_analytics
 
 ad_activity_names = [

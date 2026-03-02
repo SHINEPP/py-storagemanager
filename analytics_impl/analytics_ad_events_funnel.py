@@ -6,7 +6,7 @@ from analytics import open_analytics
 
 
 def business_events(app_name: str, app_version: str, start_date: str, end_date: str, output: str,
-                    security_path: bool = False):
+                    security_path: bool = False, zone: int = 0):
     events = [
         'business_startworker',
         'business_dowork',
@@ -31,10 +31,18 @@ def business_events(app_name: str, app_version: str, start_date: str, end_date: 
         'business_activityviewed']
     join_events = ','.join(map(lambda a: f"'{a}'", events))
 
+    # select
     sql_select = []
     csv_header = []
-    sql_select.append('event_date_utc')
-    csv_header.append('event_date_utc')
+    if zone == 0:
+        event_date = 'event_date_utc'
+        sql_select.append(event_date)
+        csv_header.append(event_date)
+    else:
+        event_date = f'event_date_{zone}'
+        zone_str = '+' + str(zone).zfill(2) + ':00'
+        sql_select.append(f"DATE(CONVERT_TZ(event_timestamp, '+00:00', '{zone_str}')) AS {event_date}")
+        csv_header.append(event_date)
     if security_path:
         sql_select.append(
             "json_unquote(json_unquote(json_extract(event_parameters, '$.security_patch'))) as security_patch")
@@ -47,21 +55,24 @@ def business_events(app_name: str, app_version: str, start_date: str, end_date: 
     csv_header.append('event_count')
     join_selects = ','.join(sql_select)
 
+    # where
     sql_where = []
     sql_where.append(f"event_name in ({join_events})")
     sql_where.append(f"json_extract(event_parameters,'$.app_version')  = '{app_version}'")
-    sql_where.append(f"event_date_utc >= '{start_date}' AND event_date_utc <= '{end_date}'")
+    sql_where.append(f"{event_date} >= '{start_date}' AND {event_date} <= '{end_date}'")
     where = ' AND '.join(sql_where)
 
+    # group
     sql_group = []
-    sql_group.append('event_date_utc')
+    sql_group.append(event_date)
     if security_path:
         sql_group.append('security_patch')
     sql_group.append('event_name')
     join_groups = ','.join(sql_group)
 
+    # order
     sql_order = []
-    sql_order.append('event_date_utc')
+    sql_order.append(event_date)
     if security_path:
         sql_order.append('security_patch')
     join_orders = ','.join(sql_order)
@@ -94,13 +105,15 @@ def business_events(app_name: str, app_version: str, start_date: str, end_date: 
 def main():
     app_name = 'chief_file_officer'
     app_version = '5'
-    start_date = '2026-02-27'
-    end_data = '2026-02-27'
+    start_date = '2026-03-01'
+    end_data = '2026-03-01'
+    security_path = True
+    zone = 8
 
     date_text = datetime.now().strftime('%m%d%H%M%S')
     output = f'/Users/zhouzhenliang/Desktop/Desktop/temp-analytics/{app_name}_events_funnel_{app_version}_{date_text}.csv'
 
-    business_events(app_name, app_version, start_date, end_data, output, security_path=True)
+    business_events(app_name, app_version, start_date, end_data, output, security_path=security_path, zone=zone)
 
 
 if __name__ == '__main__':
