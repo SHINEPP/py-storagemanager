@@ -13,10 +13,11 @@ def business_events(app_name: str, app_version: str,
                     output: str,
                     security_path: bool = False,
                     zone: int = 0):
-    start_date = start_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
-    end_date = end_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+    start_date_s = start_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
+    end_date_s = end_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
 
     events = [
+        'event_init',
         'business_startworker',
         'business_dowork',
         'business_dowork_limit',
@@ -45,7 +46,7 @@ def business_events(app_name: str, app_version: str,
     csv_header = []
     if zone == 0:
         event_date = 'event_date'
-        sql_select.append(event_date)
+        sql_select.append(f'event_date_utc AS {event_date}')
         csv_header.append(event_date)
     else:
         event_date = 'event_date'
@@ -68,7 +69,7 @@ def business_events(app_name: str, app_version: str,
     sql_where = []
     sql_where.append(f"event_name in ({join_events})")
     sql_where.append(f"json_extract(event_parameters,'$.app_version')  = '{app_version}'")
-    sql_where.append(f"event_timestamp >= '{start_date}' AND event_timestamp < '{end_date}'")
+    sql_where.append(f"event_timestamp >= '{start_date_s}' AND event_timestamp < '{end_date_s}'")
     where = ' AND '.join(sql_where)
 
     # group
@@ -112,12 +113,12 @@ def business_events(app_name: str, app_version: str,
 
 
 def main():
-    app_name = 'chief_file_officer'
-    app_version = '5'
-    start_day = '2026-03-01'
-    end_day = '2026-03-02'
-    security_path = True
-    zone = 8
+    app_name = 'universal_browser_2'
+    app_version = '2'
+    start_day = '2026-07-08'
+    end_day = '2026-07-10'
+    security_path = False
+    zone = 0
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
 
     date_text = datetime.now().strftime('%m%d%H%M%S')

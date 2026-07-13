@@ -58,6 +58,6 @@ def pull_package_apks(package_name: str):
 
 
 if __name__ == '__main__':
-    dst_path = '/Users/zhouzhenliang/Desktop/Desktop/apk-20251224/Surfboard'
-    pull_package_apks('com.getsurfboard')
+    dst_path = '/Users/zhouzhenliang/tmp/gp-app/Universal_Browser'
+    pull_package_apks('com.piwaniya.file.browser')
 

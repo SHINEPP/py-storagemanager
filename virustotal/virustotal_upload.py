@@ -55,7 +55,7 @@ def get_report(file_id: str):
 
 
 def _main():
-    path = '/Users/zhouzhenliang/Downloads/app-release_0226110827.apk'
+    path = '/Users/zhouzhenliang/Downloads/arrow-out-release-1.0.3-3.apk'
     upload_file(path)
 
 

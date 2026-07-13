@@ -17,22 +17,22 @@ class GradleDistributions:
     def __init__(self):
         self.distributions = []
         self.host_url = 'https://jdk.java.net/archive/'
-        self.gradle_dir = '/Volumes/WDDATA4T/openjdk/archive'
+        self.gradle_dir = '/Volumes/WDDATA4T/software/openjdk/archive'
         self.download_index = 0
         self.lock = threading.Lock()
 
     def start(self):
-        self._check_distributions()
-        # self._fetch_distributions()
-        # self.download_index = 0
-        # print(f'distributions count: {len(self.distributions)}')
-        # threads = []
-        # for i in range(8):
-        #     t = threading.Thread(target=self._download_distributions, args=(i,), daemon=True)
-        #     threads.append(t)
-        #     t.start()
-        # for t in threads:
-        #     t.join()
+        # self._check_distributions()
+        self._fetch_distributions()
+        self.download_index = 0
+        print(f'distributions count: {len(self.distributions)}')
+        threads = []
+        for i in range(8):
+            t = threading.Thread(target=self._download_distributions, args=(i,), daemon=True)
+            threads.append(t)
+            t.start()
+        for t in threads:
+            t.join()
 
     def _check_distributions(self):
         paths = []
@@ -82,7 +82,7 @@ class GradleDistributions:
         # chromedriver
         chrome_options = Options()
         # chrome_options.add_argument('--headless')  # 无界面模式
-        service = Service('/Users/zhouzhenliang/bin/chromedriver-mac-x64/chromedriver')
+        service = Service('/usr/local/bin/chromedriver')
         driver = webdriver.Chrome(service=service, options=chrome_options)
 
         driver.get(self.host_url)
