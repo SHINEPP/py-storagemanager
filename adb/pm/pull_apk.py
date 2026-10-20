@@ -58,6 +58,7 @@ def pull_package_apks(package_name: str):
 
 
 if __name__ == '__main__':
-    dst_path = '/Users/zhouzhenliang/tmp/gp-app/Universal_Browser'
-    pull_package_apks('com.piwaniya.file.browser')
+    pk = 'com.sl.solitaire.lab.puzzle'
+    dst_path = '/Users/zhouzhenliang/tmp/gp-app2/Solitaire_Lab'
+    pull_package_apks(pk)
 

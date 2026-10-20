@@ -113,10 +113,10 @@ def business_events(app_name: str, app_version: str,
 
 
 def main():
-    app_name = 'universal_browser_2'
-    app_version = '2'
-    start_day = '2026-07-08'
-    end_day = '2026-07-10'
+    app_name = 'stealth_browser_2'
+    app_version = '7'
+    start_day = '2026-10-16'
+    end_day = '2026-10-20'
     security_path = False
     zone = 0
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
