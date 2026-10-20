@@ -116,7 +116,7 @@ def main():
     app_name = 'stealth_browser_2'
     app_version = '7'
     start_day = '2026-10-16'
-    end_day = '2026-10-20'
+    end_day = '2026-10-21'
     security_path = False
     zone = 0
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
