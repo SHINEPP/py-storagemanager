@@ -21,13 +21,14 @@ def business_events(app_name: str, app_version: str,
         'business_startworker',
         'business_dowork',
         'business_dowork_limit',
-        'business_adactivity_chance',
+        'business_ads_chance',
+        'business_adactivity_start',
         'business_adactivity_viewed',
-        'business_hostactivity_viewed',
-        'business_hostactivity_viewed_loadorshow',
-        'business_hostactivity_viewed_justshow',
-        'business_hostactivity_postresume_loadorshow',
-        'business_hostactivity_postresume_justshow',
+        'business_adactivity_nonevisibleholder',
+        'business_activityholder_loadad',
+        'business_activityholder_loadad_failed',
+        'business_activityholder_loadad_success',
+        'business_activityholder_showad_revenue',
         'business_interstitialad_loadfailed',
         'business_interstitialad_loaded',
         'business_interstitialad_showad',
@@ -38,7 +39,8 @@ def business_events(app_name: str, app_version: str,
         'business_interstitialad_close',
         'business_interstitialad_displayfailed',
         'business_startactivity',
-        'business_activityviewed']
+        'business_activityviewed',
+        'business_onmessagereceived']
     join_events = ','.join(map(lambda a: f"'{a}'", events))
 
     # select
@@ -114,9 +116,9 @@ def business_events(app_name: str, app_version: str,
 
 def main():
     app_name = 'stealth_browser_2'
-    app_version = '7'
-    start_day = '2026-10-16'
-    end_day = '2026-10-21'
+    app_version = '8'
+    start_day = '2026-11-02'
+    end_day = '2026-11-04'
     security_path = False
     zone = 0
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'

@@ -11,7 +11,7 @@ ssh -NL 3307:amv-rj9c24ap86lo3rfb800000116.ads.aliyuncs.com:3306 root@198.11.183
 SSH_HOST = '198.11.183.103'
 SSH_PORT = 22
 SSH_USER = 'root'
-SSH_KEY_FILE = os.path.expanduser('~/.ssh/id_rsa')
+SSH_KEY_FILE = os.path.expanduser('~/.ssh/id_rsa.pub')
 
 MYSQL_HOST = 'amv-rj9c24ap86lo3rfb800000116.ads.aliyuncs.com'
 MYSQL_PORT = 3306
@@ -61,7 +61,7 @@ def open_analytics() -> AnalyticsConnection:
 
 if __name__ == '__main__':
     with open_analytics() as cursor:
-        cursor.execute('SELECT * FROM `macrophage_data_super_storage_cleaner`.raw_data LIMIT 10')
+        cursor.execute('SELECT * FROM `stealth_browser_2`.raw_data LIMIT 10')
         names = []
         for desc in cursor.description:
             names.append(desc[0])
