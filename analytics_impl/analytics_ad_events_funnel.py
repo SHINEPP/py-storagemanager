@@ -49,26 +49,22 @@ def business_events(app_name: str,
     # select
     sql_select = []
     csv_header = []
-    if zone == 0:
-        event_date = 'event_date'
-        sql_select.append(f'event_date_utc AS {event_date}')
-    else:
-        event_date = 'event_date'
-        zone_str = '+' + str(zone).zfill(2) + ':00'
-        sql_select.append(f"DATE(CONVERT_TZ(event_timestamp, '+00:00', '{zone_str}')) AS {event_date}")
-    csv_header.append(event_date)
+
+    def append_attribute(sql_v, csv_v):
+        sql_select.append(sql_v)
+        csv_header.append(csv_v)
+
+    event_date = 'event_date'
+    zone_str = '+' + str(zone).zfill(2) + ':00'
+    append_attribute(f"DATE(CONVERT_TZ(event_timestamp, '+00:00', '{zone_str}')) AS {event_date}",
+                     event_date)
     if security_path:
-        sql_select.append(
-            "json_unquote(json_unquote(json_extract(event_parameters, '$.security_patch'))) as security_patch")
-        csv_header.append('security_patch')
-    sql_select.append('event_name')
-    sql_select.append('count(distinct user_id) as user_count')
-    sql_select.append('count(*) as event_count')
-
-    csv_header.append('event_name')
-    csv_header.append('user_count')
-    csv_header.append('event_count')
-
+        append_attribute(
+            "json_unquote(json_unquote(json_extract(event_parameters, '$.security_patch'))) as security_patch",
+            'security_patch')
+    append_attribute('event_name', 'event_name')
+    append_attribute('count(distinct user_id) as user_count', 'user_count')
+    append_attribute('count(*) as event_count', 'event_count')
     join_selects = ','.join(sql_select)
 
     # where
