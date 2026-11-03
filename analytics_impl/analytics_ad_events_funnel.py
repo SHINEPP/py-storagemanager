@@ -8,8 +8,10 @@ import pytz
 from analytics import open_analytics
 
 
-def business_events(app_name: str, app_version: str,
-                    start_date: datetime, end_date: datetime,
+def business_events(app_name: str,
+                    app_version: str,
+                    start_date: datetime,
+                    end_date: datetime,
                     output: str,
                     security_path: bool = False,
                     zone: int = 0):
@@ -25,6 +27,7 @@ def business_events(app_name: str, app_version: str,
         'business_adactivity_start',
         'business_adactivity_viewed',
         'business_adactivity_nonevisibleholder',
+        'business_activityholder_loadshowad',
         'business_activityholder_loadad',
         'business_activityholder_loadad_failed',
         'business_activityholder_loadad_success',
@@ -49,22 +52,23 @@ def business_events(app_name: str, app_version: str,
     if zone == 0:
         event_date = 'event_date'
         sql_select.append(f'event_date_utc AS {event_date}')
-        csv_header.append(event_date)
     else:
         event_date = 'event_date'
         zone_str = '+' + str(zone).zfill(2) + ':00'
         sql_select.append(f"DATE(CONVERT_TZ(event_timestamp, '+00:00', '{zone_str}')) AS {event_date}")
-        csv_header.append(event_date)
+    csv_header.append(event_date)
     if security_path:
         sql_select.append(
             "json_unquote(json_unquote(json_extract(event_parameters, '$.security_patch'))) as security_patch")
         csv_header.append('security_patch')
     sql_select.append('event_name')
-    csv_header.append('event_name')
     sql_select.append('count(distinct user_id) as user_count')
-    csv_header.append('user_count')
     sql_select.append('count(*) as event_count')
+
+    csv_header.append('event_name')
+    csv_header.append('user_count')
     csv_header.append('event_count')
+
     join_selects = ','.join(sql_select)
 
     # where
@@ -118,7 +122,7 @@ def main():
     app_name = 'stealth_browser_2'
     app_version = '8'
     start_day = '2026-11-02'
-    end_day = '2026-11-04'
+    end_day = '2026-11-03'
     security_path = False
     zone = 0
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
@@ -126,9 +130,9 @@ def main():
     date_text = datetime.now().strftime('%m%d%H%M%S')
     output = os.path.join(output_dir, f'{app_name}_events_funnel_{app_version}_{date_text}.csv')
 
-    tz_cn = pytz.timezone('Asia/Shanghai')
-    start_date = tz_cn.localize(datetime.strptime(start_day, '%Y-%m-%d'))
-    end_data = tz_cn.localize(datetime.strptime(end_day, '%Y-%m-%d'))
+    tz = pytz.FixedOffset(zone * 60)
+    start_date = tz.localize(datetime.strptime(start_day, '%Y-%m-%d'))
+    end_data = tz.localize(datetime.strptime(end_day, '%Y-%m-%d'))
 
     business_events(app_name, app_version, start_date, end_data, output, security_path=security_path, zone=zone)
 
