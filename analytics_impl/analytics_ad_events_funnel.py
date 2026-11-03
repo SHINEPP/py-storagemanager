@@ -18,6 +18,34 @@ def business_events(app_name: str,
     start_date_s = start_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
     end_date_s = end_date.astimezone(timezone.utc).strftime('%Y-%m-%d %H:%M:%S')
 
+    events = [
+        'event_init',
+        'business_startworker',
+        'business_dowork',
+        'business_dowork_limit',
+        'business_ads_chance',
+        'business_adactivity_start',
+        'business_adactivity_viewed',
+        'business_adactivity_nonevisibleholder',
+        'business_activityholder_loadshowad',
+        'business_activityholder_loadad',
+        'business_activityholder_loadad_failed',
+        'business_activityholder_loadad_success',
+        'business_activityholder_showad_revenue',
+        'business_interstitialad_loadfailed',
+        'business_interstitialad_loaded',
+        'business_interstitialad_showad',
+        'business_interstitialad_viewed',
+        'business_interstitialad_revenue',
+        'business_interstitialad_loadfailed',
+        'business_interstitialad_clicked',
+        'business_interstitialad_close',
+        'business_interstitialad_displayfailed',
+        'business_startactivity',
+        'business_activityviewed',
+        'business_onmessagereceived']
+    join_events = ','.join(map(lambda a: f"'{a}'", events))
+
     # select
     sql_select = []
     csv_header = []
@@ -32,15 +60,16 @@ def business_events(app_name: str,
                      event_date)
     if security_path:
         append_attribute(
-            "json_unquote(json_unquote(json_extract(event_parameters, '$.error'))) as ad_error",
-            'ad_error')
+            "json_unquote(json_unquote(json_extract(event_parameters, '$.security_patch'))) as security_patch",
+            'security_patch')
+    append_attribute('event_name', 'event_name')
     append_attribute('count(distinct user_id) as user_count', 'user_count')
     append_attribute('count(*) as event_count', 'event_count')
     join_selects = ','.join(sql_select)
 
     # where
     sql_where = []
-    sql_where.append(f"event_name = 'business_interstitialad_loadfailed'")
+    sql_where.append(f"event_name in ({join_events})")
     sql_where.append(f"json_extract(event_parameters,'$.app_version')  = '{app_version}'")
     sql_where.append(f"event_timestamp >= '{start_date_s}' AND event_timestamp < '{end_date_s}'")
     where = ' AND '.join(sql_where)
@@ -50,7 +79,7 @@ def business_events(app_name: str,
     sql_group.append(event_date)
     if security_path:
         sql_group.append('security_patch')
-    sql_group.append('ad_error')
+    sql_group.append('event_name')
     join_groups = ','.join(sql_group)
 
     # order
@@ -95,7 +124,7 @@ def main():
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
 
     date_text = datetime.now().strftime('%m%d%H%M%S')
-    output = os.path.join(output_dir, f'{app_name}_ad_loadfailed_{app_version}_{date_text}.csv')
+    output = os.path.join(output_dir, f'{app_name}_events_funnel_{app_version}_{date_text}.csv')
 
     tz = pytz.FixedOffset(zone * 60)
     start_date = tz.localize(datetime.strptime(start_day, '%Y-%m-%d'))
