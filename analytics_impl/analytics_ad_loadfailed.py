@@ -91,8 +91,8 @@ def business_events(app_name: str,
 def main():
     app_name = 'stealth_browser_2'
     app_version = '8'
-    start_day = '2026-11-02'
-    end_day = '2026-11-03'
+    start_day = '2026-11-03'
+    end_day = '2026-11-04'
     security_path = False
     zone = 0
     output_dir = '/Users/zhouzhenliang/Desktop/Desktop/temp-analytics'
